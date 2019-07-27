@@ -3,7 +3,7 @@
 </template>
 <script>
  export default {
-  name: 'ForgotPasswordPage'
+  name: 'UserChat'
  };
 </script>
 <style scoped>
