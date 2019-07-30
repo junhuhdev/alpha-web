@@ -9,7 +9,7 @@
     <v-toolbar-items class="hidden-sm-and-down">
       <v-btn text v-for="item in items" :key="item.title" :to="item.link">{{item.title}}</v-btn>
     </v-toolbar-items>
-    <v-menu left bottom v-for="item in dropdownItems" :key="item.title">
+    <v-menu v-for="item in dropdownItems" :key="item.title">
       <template v-slot:activator="{ on }">
         <v-btn text v-on="on">{{item.title}}</v-btn>
       </template>
@@ -19,7 +19,22 @@
         </v-list-item>
       </v-list>
     </v-menu>
-    <!--    <v-btn text v-for="item in items" :key="item.title" :to="item.link">{{item.title}}</v-btn>-->
+    <v-spacer></v-spacer>
+    <v-btn icon>
+      <v-icon>mdi-magnify</v-icon>
+    </v-btn>
+    <v-menu left bottom>
+      <template v-slot:activator="{ on }">
+        <v-btn icon v-on="on">
+          <v-icon>mdi-dots-vertical</v-icon>
+        </v-btn>
+      </template>
+      <v-list>
+        <v-list-item v-for="dropdownIcon in dropdownIcons" :key="dropdownIcon.title" @click="() => {}" :to="dropdownIcon.link">
+          <v-list-item-title>{{dropdownIcon.title}}</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-menu>
   </v-app-bar>
 </template>
 <script>
@@ -43,6 +58,11 @@
       {title: 'Create bug', link: '/create-bug'},
      ]
     }
+   ],
+   dropdownIcons: [
+    {title: 'Settings', link: '/settings'},
+    {title: 'Profile', link: '/profile'},
+    {title: 'Logout', link: '/logout'},
    ]
   })
 
