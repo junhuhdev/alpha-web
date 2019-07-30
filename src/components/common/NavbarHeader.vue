@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar dense>
+  <v-app-bar color="deep-purple accent-4" dark>
     <v-app-bar-nav-icon></v-app-bar-nav-icon>
     <v-toolbar-title>Alpha</v-toolbar-title>
     <v-spacer></v-spacer>
