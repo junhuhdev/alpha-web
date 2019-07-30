@@ -7,7 +7,11 @@
         </v-toolbar>
         <v-card-text>
           <v-form>
-
+            <v-select :items="severity" label="Sharpness" type="text"></v-select>
+            <v-select :items="severity" label="Mood" type="text"></v-select>
+            <v-select :items="severity" label="Energy" type="text"></v-select>
+            <v-combobox :items="medicines" label="Medicines" multiple chips></v-combobox>
+            <v-combobox :items="vitamins" label="Vitamins" multiple chips></v-combobox>
           </v-form>
         </v-card-text>
         <v-card-actions>
@@ -20,7 +24,11 @@
 </template>
 <script>
  export default {
-  name: 'CreateDiary'
+  data: () => ({
+   severity: [1, 2, 3, 4, 5],
+   medicines: ['attentin 10mg', 'alvedon'],
+   vitamins: ['vitamin-d 5000UI', 'omega-3'],
+  })
  };
 </script>
 <style scoped>
