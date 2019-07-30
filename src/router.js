@@ -14,6 +14,7 @@ import CreateDiary from './views/diary/CreateDiary';
 import CreateStack from './views/stack/CreateStack';
 import Stack from './views/stack/Stack';
 import UserSetting from './views/user/UserSetting';
+import CreateFood from './views/directory/CreateFood';
 
 Vue.use(Router);
 
@@ -34,6 +35,7 @@ export default new Router({
   {path: '/create-vitamin', name: 'create-vitamin', component: CreateVitamin},
   {path: '/create-medicine', name: 'create-medicine', component: CreateMedicine},
   {path: '/create-bug', name: 'create-bug', component: CreateBug},
+  {path: '/create-food', name: 'create-food', component: CreateFood},
   /** User routes */
   {path: '/user-profile', name: 'user-profile', component: UserProfile},
   {path: '/user-setting', name: 'user-setting', component: UserSetting},
