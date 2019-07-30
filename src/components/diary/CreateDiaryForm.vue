@@ -3,7 +3,7 @@
 </template>
 <script>
  export default {
-  name: 'UserVisitor'
+  name: 'CreateDiaryForm'
  };
 </script>
 <style scoped>
