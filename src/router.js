@@ -10,6 +10,7 @@ import UserProfile from './views/user/UserProfile';
 import CreateVitamin from './views/diary/CreateVitamin';
 import CreateMedicine from './views/diary/CreateMedicine';
 import CreateBug from './views/diary/CreateBug';
+import CreateDiary from './views/diary/CreateDiary';
 
 Vue.use(Router);
 
@@ -22,6 +23,7 @@ export default new Router({
   {path: '/register', name: 'register', component: Register},
   {path: '/dashboard', name: 'dashboard', component: Dashboard},
   {path: '/diary', name: 'diary', component: Diary},
+  {path: '/create-diary', name: 'create-diary', component: CreateDiary},
   {path: '/create-vitamin', name: 'create-vitamin', component: CreateVitamin},
   {path: '/create-medicine', name: 'create-medicine', component: CreateMedicine},
   {path: '/create-bug', name: 'create-bug', component: CreateBug},
