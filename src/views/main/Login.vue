@@ -7,8 +7,8 @@
         </v-toolbar>
         <v-card-text>
           <v-form>
-            <v-text-field label="Login" name="login" prepend-icon="person" type="text"></v-text-field>
-            <v-text-field label="Password" name="password" prepend-icon="lock" type="password"></v-text-field>
+            <v-text-field label="Login" name="login" prepend-icon="mdi-account" type="text"></v-text-field>
+            <v-text-field label="Password" name="password" prepend-icon="mdi-lock" type="password"></v-text-field>
           </v-form>
         </v-card-text>
         <v-card-actions>
