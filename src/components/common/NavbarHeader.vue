@@ -47,9 +47,18 @@
     {title: 'Register', link: '/register', icon: 'home'},
     {title: 'User', link: '/user', icon: 'home'},
     {title: 'Dashboard', link: '/dashboard', icon: 'home'},
-    {title: 'Diary', link: '/diary', icon: 'home'},
    ],
    dropdownItems: [
+    {
+     title: 'Diary',
+     children: [
+      {title: 'My diary', link: '/diary'},
+      {title: 'My stack', link: '/stack'},
+      {title: 'Create diary', link: '/create-diary'},
+      {title: 'Create food diary', link: '/create-food-diary'},
+      {title: 'Create stack', link: '/create-stack'},
+     ]
+    },
     {
      title: 'Directory',
      children: [
