@@ -10,6 +10,7 @@
             <v-select :items="severity" label="Sharpness" type="text"></v-select>
             <v-select :items="severity" label="Mood" type="text"></v-select>
             <v-select :items="severity" label="Energy" type="text"></v-select>
+            <v-select :items="severity" label="Productivity" type="text"></v-select>
             <v-combobox :items="medicines" label="Medicines" multiple chips></v-combobox>
             <v-combobox :items="vitamins" label="Vitamins" multiple chips></v-combobox>
             <v-textarea label="Comment" auto-grow rows="3" row-height="15"></v-textarea>
