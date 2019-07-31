@@ -11,7 +11,7 @@
             <v-text-field label="Password" name="password" prepend-icon="mdi-lock" type="password"></v-text-field>
             <v-text-field label="First name" name="firstname" prepend-icon="mdi-account" type="text"></v-text-field>
             <v-text-field label="Last name" name="lastname" prepend-icon="mdi-account" type="text"></v-text-field>
-            <v-select :items="gender" label="Gender" prepend-icon="mdi-account" type="text"></v-select>
+            <v-combobox :items="gender" label="Gender" prepend-icon="mdi-account" chips></v-combobox>
           </v-form>
         </v-card-text>
         <v-card-actions>

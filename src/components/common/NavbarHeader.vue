@@ -65,9 +65,11 @@
       {title: 'All vitamins', link: '/vitamin'},
       {title: 'All medicines', link: '/medicine'},
       {title: 'All bugs', link: '/bug'},
+      {title: 'All food', link: '/food'},
       {title: 'Create vitamin', link: '/create-vitamin'},
       {title: 'Create medicine', link: '/create-medicine'},
       {title: 'Create bug', link: '/create-bug'},
+      {title: 'Create food', link: '/create-food'},
      ]
     }
    ],
