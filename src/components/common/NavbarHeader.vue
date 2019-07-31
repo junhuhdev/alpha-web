@@ -70,6 +70,7 @@
       {title: 'Create medicine', link: '/create-medicine'},
       {title: 'Create bug', link: '/create-bug'},
       {title: 'Create food', link: '/create-food'},
+      {title: 'Create tobacco', link: '/create-tobacco'},
      ]
     }
    ],
