@@ -13,6 +13,7 @@
             <v-select :items="severity" label="Productivity" type="text"></v-select>
             <v-combobox :items="medicines" label="Medicines" multiple chips></v-combobox>
             <v-combobox :items="vitamins" label="Vitamins" multiple chips></v-combobox>
+            <v-combobox :items="nootropics" label="Nootropics" multiple chips></v-combobox>
             <v-combobox :items="vitamins" label="Bugs" multiple chips></v-combobox>
             <v-textarea label="Comment" auto-grow rows="3" row-height="15"></v-textarea>
           </v-form>
@@ -31,6 +32,7 @@
    severity: [1, 2, 3, 4, 5],
    medicines: ['attentin 10mg', 'alvedon'],
    vitamins: ['vitamin-d 5000UI', 'omega-3'],
+   nootropics: ['alpha-brain', 'piracetam']
   })
  };
 </script>
