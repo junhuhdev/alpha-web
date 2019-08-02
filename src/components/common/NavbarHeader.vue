@@ -52,8 +52,8 @@
     {
      title: 'Diary',
      children: [
-      {title: 'My diary', link: '/diary'},
-      {title: 'My stack', link: '/stack'},
+      {title: 'Daily Records', link: '/diary'},
+      {title: 'Nootropic Stack', link: '/stack'},
       {title: 'Create diary', link: '/create-diary'},
       {title: 'Create food diary', link: '/create-food-diary'},
       {title: 'Create stack', link: '/create-stack'},

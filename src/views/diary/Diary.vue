@@ -3,7 +3,7 @@
     <v-flex xs12 sm8 md12>
       <v-card class="elevation-12">
         <v-toolbar color="primary" dark flat>
-          <v-toolbar-title>My Diary</v-toolbar-title>
+          <v-toolbar-title>Daily Records</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-text-field v-model="search" append-icon="mdi-search" label="Search" single-line hide-details></v-text-field>
         </v-toolbar>
