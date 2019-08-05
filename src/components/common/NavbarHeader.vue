@@ -1,41 +1,55 @@
 <template>
-  <v-app-bar app dense color="deep-purple accent-4" dark>
-    <v-app-bar-nav-icon></v-app-bar-nav-icon>
-    <div class="mr-5">
-      <v-toolbar-title>
-        <router-link to="/" class="toolbar-title">Heartbeat</router-link>
-      </v-toolbar-title>
-    </div>
-    <v-toolbar-items class="hidden-sm-and-down">
-      <v-btn text v-for="item in items" :key="item.title" :to="item.link">{{item.title}}</v-btn>
-    </v-toolbar-items>
-    <v-menu v-for="item in dropdownItems" :key="item.title">
-      <template v-slot:activator="{ on }">
-        <v-btn text v-on="on">{{item.title}}</v-btn>
-      </template>
-      <v-list>
-        <v-list-item v-for="children in item.children" :key="children.title" @click="() => {}" :to="children.link">
-          <v-list-item-title>{{children.title}}</v-list-item-title>
-        </v-list-item>
+  <div>
+    <v-app-bar app dense color="deep-purple accent-4" dark>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <div class="mr-5">
+        <v-toolbar-title>
+          <router-link to="/" class="toolbar-title">Heartbeat</router-link>
+        </v-toolbar-title>
+      </div>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn text v-for="item in items" :key="item.title" :to="item.link">{{item.title}}</v-btn>
+      </v-toolbar-items>
+      <v-menu v-for="item in dropdownItems" :key="item.title">
+        <template v-slot:activator="{ on }">
+          <v-btn text v-on="on">{{item.title}}</v-btn>
+        </template>
+        <v-list>
+          <v-list-item v-for="children in item.children" :key="children.title" @click="() => {}" :to="children.link">
+            <v-list-item-title>{{children.title}}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+      <v-spacer></v-spacer>
+      <v-btn icon>
+        <v-icon>mdi-magnify</v-icon>
+      </v-btn>
+      <v-menu left bottom>
+        <template v-slot:activator="{ on }">
+          <v-btn icon v-on="on">
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+        <v-list>
+          <v-list-item v-for="dropdownIcon in dropdownIcons" :key="dropdownIcon.title" @click="() => {}" :to="dropdownIcon.link">
+            <v-list-item-title>{{dropdownIcon.title}}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </v-app-bar>
+    <v-navigation-drawer app v-model="drawer" absolute temporary>
+      <v-list nav dense>
+        <v-list-item-group>
+          <v-list-item>
+            <v-list-item-title>Foo</v-list-item-title>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-title>Bar</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
       </v-list>
-    </v-menu>
-    <v-spacer></v-spacer>
-    <v-btn icon>
-      <v-icon>mdi-magnify</v-icon>
-    </v-btn>
-    <v-menu left bottom>
-      <template v-slot:activator="{ on }">
-        <v-btn icon v-on="on">
-          <v-icon>mdi-dots-vertical</v-icon>
-        </v-btn>
-      </template>
-      <v-list>
-        <v-list-item v-for="dropdownIcon in dropdownIcons" :key="dropdownIcon.title" @click="() => {}" :to="dropdownIcon.link">
-          <v-list-item-title>{{dropdownIcon.title}}</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-menu>
-  </v-app-bar>
+    </v-navigation-drawer>
+  </div>
 </template>
 <script>
  export default {

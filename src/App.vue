@@ -12,10 +12,12 @@
  import HelloWorld from './components/HelloWorld';
  import NavbarHeader from './components/common/NavbarHeader';
  import NavbarBottom from './components/common/NavbarBottom';
+ import NavigationDrawer from './components/common/NavigationDrawer';
 
  export default {
   name: 'App',
   components: {
+   NavigationDrawer,
    NavbarBottom,
    NavbarHeader,
    HelloWorld,
