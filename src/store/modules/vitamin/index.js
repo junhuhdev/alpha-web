@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { SELECT_MEDICINE, SELECT_MEDICINES } from '../medicine/types';
 import { SELECT_VITAMIN, SELECT_VITAMINS } from './types';
 
 const BASE_PATH = '/vitamins';
@@ -22,7 +21,7 @@ export default {
   async selectVitamin ({commit}, id) {
    try {
     const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/' + id}`);
-    commit(SELECT_MEDICINE, response.data);
+    commit(SELECT_VITAMIN, response.data);
     return response.data;
    } catch (error) {
     console.log(error);
@@ -31,7 +30,7 @@ export default {
   async selectVitamins ({commit}) {
    try {
     const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH}`);
-    commit(SELECT_MEDICINES, response.data);
+    commit(SELECT_VITAMINS, response.data);
     return response.data;
    } catch (error) {
     console.log(error);

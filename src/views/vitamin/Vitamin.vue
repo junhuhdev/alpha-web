@@ -24,9 +24,9 @@
    search: '',
    headers: [
     {text: 'Name', value: 'name'},
-    {text: 'Brand', value: 'brand'},
+    {text: 'Manufacturer', value: 'manufacturer'},
     {text: 'Dosage', value: 'dosage'},
-    {text: 'Price', value: 'price'},
+    {text: 'Price', value: 'amount'},
    ],
    // vitamins: [
    //  {name: 'Vitamin-D|5000UI', brand: 'Now Foods', dosage: '5000UI', price: '100 SEK'},
