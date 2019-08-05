@@ -19,7 +19,7 @@ export default {
 
  },
  actions: {
-  async selectVitamin ({commit}, id) {
+  async selectMedicine ({commit}, id) {
    try {
     const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/' + id}`);
     commit(SELECT_MEDICINE, response.data);
@@ -28,7 +28,7 @@ export default {
     console.log(error);
    }
   },
-  async selectVitamins ({commit}) {
+  async selectMedicines ({commit}) {
    try {
     const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH}`);
     commit(SELECT_MEDICINES, response.data);
@@ -37,7 +37,7 @@ export default {
     console.log(error);
    }
   },
-  async insertVitamin ({commit}, payload) {
+  async insertMedicine ({commit}, payload) {
    try {
     const response = await axios.post(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH}`, payload);
     commit(INSERT_MEDICINE, response.data);
@@ -46,7 +46,7 @@ export default {
     console.log(error);
    }
   },
-  async updateVitamin ({commit}, payload) {
+  async updateMedicine ({commit}, payload) {
    try {
     const response = await axios.put(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/' + payload.id}`, payload);
     commit(UPDATE_MEDICINE, response.data);
@@ -55,7 +55,7 @@ export default {
     console.log(error);
    }
   },
-  async deleteVitamin ({commit}, payload) {
+  async deleteMedicine ({commit}, payload) {
    try {
     const response = await axios.delete(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH}` + '/' + payload.id);
     commit(DELETE_MEDICINE, response.data);
