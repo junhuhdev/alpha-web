@@ -4,7 +4,7 @@ import axios from 'axios';
 const BASE_PATH = '/medicines';
 
 export default {
- namespaced: true,
+ namespaced: false,
  state: {
   medicine: {},
   medicines: []
