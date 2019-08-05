@@ -1,0 +1,5 @@
+export const SELECT_DRINK = 'SELECT_DRINK';
+export const SELECT_DRINKS = 'SELECT_DRINKS';
+export const INSERT_DRINK = 'INSERT_DRINK';
+export const UPDATE_DRINK = 'UPDATE_DRINK';
+export const DELETE_DRINK = 'DELETE_DRINK';

@@ -1,6 +1,6 @@
 <template>
   <v-layout align-center justify-center>
-    <v-flex xs12 sm8 md4>
+    <v-flex xs12 sm8 md6>
       <v-card class="elevation-12">
         <v-toolbar color="primary" dark flat>
           <v-toolbar-title>Available Vitamins</v-toolbar-title>
@@ -23,6 +23,7 @@
   data: () => ({
    search: '',
    headers: [
+    {text: 'Created', value: 'created'},
     {text: 'Name', value: 'name'},
     {text: 'Manufacturer', value: 'manufacturer'},
     {text: 'Dosage', value: 'dosage'},

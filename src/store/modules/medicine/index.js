@@ -66,6 +66,7 @@ export default {
   }
  },
  getters: {
-  medicines: state => state.medicines
+  medicines: state => state.medicines,
+  medicine: state => state.medicine
  }
 };
