@@ -27,36 +27,17 @@
     {text: 'Manufacturer', value: 'manufacturer'},
     {text: 'Dosage', value: 'dosage'},
    ],
-   medicines: [
-    {name: 'Attentin|10mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|15mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-    {name: 'Attentin|20mg', manufacturer: 'omarious', dosage: '10mg'},
-   ]
-  })
+  }),
+
+  computed: {
+   medicines () {
+    return this.$store.getters.medicines;
+   }
+  },
+
+  created () {
+   this.$store.dispatch('selectMedicines');
+  }
  };
 </script>
 <style scoped>

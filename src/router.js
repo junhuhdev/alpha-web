@@ -9,7 +9,7 @@ import Dashboard from './views/statistic/Dashboard';
 import UserProfile from './views/user/UserProfile';
 import CreateVitamin from './views/vitamin/CreateVitamin';
 import CreateMedicine from './views/medicine/CreateMedicine';
-import CreateBug from './views/directory/CreateBug';
+import CreateBug from './views/bug/CreateBug';
 import CreateDiary from './views/diary/CreateDiary';
 import CreateStack from './views/stack/CreateStack';
 import Stack from './views/stack/Stack';
@@ -17,12 +17,14 @@ import UserSetting from './views/user/UserSetting';
 import CreateFood from './views/food/CreateFood';
 import Vitamin from './views/vitamin/Vitamin';
 import Medicine from './views/medicine/Medicine';
-import Bug from './views/directory/Bug';
+import Bug from './views/bug/Bug';
 import Food from './views/food/Food';
 import CreateTobacco from './views/directory/CreateTobacco';
 import Oura from './views/integration/oura/Oura';
 import SmartScale from './views/integration/nokia/SmartScale';
 import Fitbit from './views/integration/fitbit/Fitbit';
+import CreateNootropic from './views/nootropic/CreateNootropic';
+import Nootropic from './views/nootropic/Nootropic';
 
 Vue.use(Router);
 
@@ -50,6 +52,9 @@ export default new Router({
   {path: '/create-bug', name: 'create-bug', component: CreateBug},
   {path: '/create-food', name: 'create-food', component: CreateFood},
   {path: '/create-tobacco', name: 'create-tobacco', component: CreateTobacco},
+  /** Nootropic routes */
+  {path: '/create-nootropic', name: 'create-nootropic', component: CreateNootropic},
+  {path: '/nootropic', name: 'nootropic', component: Nootropic},
   /** User routes */
   {path: '/user-profile', name: 'user-profile', component: UserProfile},
   {path: '/user-setting', name: 'user-setting', component: UserSetting},

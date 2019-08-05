@@ -80,11 +80,13 @@
       {title: 'Available medicines', link: '/medicine'},
       {title: 'Available bugs', link: '/bug'},
       {title: 'Available foods', link: '/food'},
+      {title: 'Available Nootropics', link: '/nootropic'},
       {title: 'Create vitamin', link: '/create-vitamin'},
       {title: 'Create medicine', link: '/create-medicine'},
       {title: 'Create bug', link: '/create-bug'},
       {title: 'Create food', link: '/create-food'},
       {title: 'Create tobacco', link: '/create-tobacco'},
+      {title: 'Create nootropic', link: '/create-nootropic'},
      ]
     }
    ],

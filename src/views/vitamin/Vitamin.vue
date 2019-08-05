@@ -29,19 +29,6 @@
     {text: 'Dosage', value: 'dosage'},
     {text: 'Price', value: 'amount'},
    ],
-   // vitamins: [
-   //  {name: 'Vitamin-D|5000UI', brand: 'Now Foods', dosage: '5000UI', price: '100 SEK'},
-   //  {name: 'Vitamin-A|5000UI', brand: 'Now Foods', dosage: '5000UI', price: '200 SEK'},
-   //  {name: 'Curcumin|100mg', brand: 'Now Foods', dosage: '5000UI', price: '450 SEK'},
-   //  {name: 'Omega-3|600mg', brand: 'Now Foods', dosage: '5000UI', price: '100 SEK'},
-   //  {name: 'Vitamin-D|5000UI', brand: 'Now Foods', dosage: '5000UI', price: '100 SEK'},
-   //  {name: 'Vitamin-D|5000UI', brand: 'Now Foods', dosage: '5000UI', price: '100 SEK'},
-   //  {name: 'Vitamin-D|5000UI', brand: 'Now Foods', dosage: '5000UI', price: '200 SEK'},
-   //  {name: 'Vitamin-D|5000UI', brand: 'Now Foods', dosage: '5000UI', price: '300 SEK'},
-   //  {name: 'Vitamin-D|5000UI', brand: 'Now Foods', dosage: '5000UI', price: '100 SEK'},
-   //  {name: 'Vitamin-D|5000UI', brand: 'Now Foods', dosage: '5000UI', price: '100 SEK'},
-   //  {name: 'Vitamin-D|5000UI', brand: 'Now Foods', dosage: '5000UI', price: '100 SEK'},
-   // ]
   }),
 
   computed: {
