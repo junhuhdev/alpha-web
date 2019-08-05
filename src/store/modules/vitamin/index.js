@@ -5,7 +5,7 @@ import { SELECT_VITAMIN, SELECT_VITAMINS } from './types';
 const BASE_PATH = '/vitamins';
 
 export default {
- namespaced: true,
+ namespaced: false,
  state: {
   vitamin: {},
   vitamins: []
