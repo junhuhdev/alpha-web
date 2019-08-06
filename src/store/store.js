@@ -7,6 +7,7 @@ import nootropicModule from './modules/nootropic';
 import foodModule from './modules/food';
 import drinkModule from './modules/drink';
 import diaryModule from './modules/diary';
+import authModule from './modules/auth';
 
 Vue.use(Vuex);
 
@@ -19,7 +20,8 @@ export default new Vuex.Store({
   nootropic: nootropicModule,
   food: foodModule,
   drink: drinkModule,
-  diary: diaryModule
+  diary: diaryModule,
+  auth: authModule
  },
  state: {}
 });
