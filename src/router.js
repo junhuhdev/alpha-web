@@ -25,8 +25,25 @@ import SmartScale from './views/integration/nokia/SmartScale';
 import Fitbit from './views/integration/fitbit/Fitbit';
 import CreateNootropic from './views/nootropic/CreateNootropic';
 import Nootropic from './views/nootropic/Nootropic';
+import store from './store/store'
 
 Vue.use(Router);
+
+const ifNotAuthenticated = (to, from, next) => {
+ if (!store.getters.isAuthenticated) {
+  next();
+  return;
+ }
+ next('/');
+};
+
+const ifAuthenticated = (to, from, next) => {
+ if (store.getters.isAuthenticated) {
+  next();
+  return;
+ }
+ next('/login');
+};
 
 export default new Router({
  mode: 'history',
@@ -44,7 +61,7 @@ export default new Router({
   {path: '/create-stack', name: 'create-stack', component: CreateStack},
   /** Directory routes */
   {path: '/vitamin', name: 'vitamin', component: Vitamin},
-  {path: '/medicine', name: 'medicine', component: Medicine},
+  {path: '/medicine', name: 'medicine', component: Medicine, beforeEnter: ifAuthenticated},
   {path: '/bug', name: 'bug', component: Bug},
   {path: '/food', name: 'food', component: Food},
   {path: '/create-vitamin', name: 'create-vitamin', component: CreateVitamin},
