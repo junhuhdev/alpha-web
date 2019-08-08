@@ -11,7 +11,7 @@
         <v-btn v-if="item.public && !loggedIn" text v-for="item in items" :key="item.title" :to="item.link">{{item.title}}</v-btn>
         <v-btn v-if="!item.public && loggedIn" text v-for="item in items" :key="item.title" :to="item.link">{{item.title}}</v-btn>
       </v-toolbar-items>
-      <v-menu v-for="item in dropdownItems" :key="item.title">
+      <v-menu v-if="loggedIn" v-for="item in dropdownItems" :key="item.title">
         <template v-slot:activator="{ on }">
           <v-btn text v-on="on">{{item.title}}</v-btn>
         </template>

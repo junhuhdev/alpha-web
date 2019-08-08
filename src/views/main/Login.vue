@@ -27,10 +27,10 @@
   }),
 
   methods: {
-   async login () {
+   login () {
     const {username, password} = this;
-    const res = await this.$store.dispatch('login', {username, password});
-
+    this.$store.dispatch('login', {username, password})
+     .then(() => this.$router.push('/'));
    }
   }
  };
