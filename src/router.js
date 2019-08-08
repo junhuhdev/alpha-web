@@ -26,6 +26,9 @@ import Fitbit from './views/integration/fitbit/Fitbit';
 import CreateNootropic from './views/nootropic/CreateNootropic';
 import Nootropic from './views/nootropic/Nootropic';
 import store from './store/store';
+import Tobacco from './views/directory/Tobacco';
+import CreateDrink from './views/drink/CreateDrink';
+import Drink from './views/drink/Drink';
 
 Vue.use(Router);
 
@@ -64,11 +67,15 @@ export default new Router({
   {path: '/medicine', name: 'medicine', component: Medicine, beforeEnter: ifAuthenticated},
   {path: '/bug', name: 'bug', component: Bug},
   {path: '/food', name: 'food', component: Food},
+  {path: '/tobacco', name: 'tobacco', component: Tobacco},
   {path: '/create-vitamin', name: 'create-vitamin', component: CreateVitamin},
   {path: '/create-medicine', name: 'create-medicine', component: CreateMedicine},
   {path: '/create-bug', name: 'create-bug', component: CreateBug},
   {path: '/create-food', name: 'create-food', component: CreateFood},
   {path: '/create-tobacco', name: 'create-tobacco', component: CreateTobacco},
+  /** Drink routes */
+  {path: '/create-drink', name: 'create-drink', component: CreateDrink},
+  {path: '/drink', name: 'drink', component: Drink},
   /** Nootropic routes */
   {path: '/create-nootropic', name: 'create-nootropic', component: CreateNootropic},
   {path: '/nootropic', name: 'nootropic', component: Nootropic},

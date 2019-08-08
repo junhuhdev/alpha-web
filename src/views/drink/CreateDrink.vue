@@ -3,13 +3,14 @@
     <v-flex xs12 sm8 md4>
       <v-card class="elevation-12">
         <v-toolbar color="primary" dark flat>
-          <v-toolbar-title>Create tobacco</v-toolbar-title>
+          <v-toolbar-title>Create drink</v-toolbar-title>
         </v-toolbar>
         <v-card-text>
           <v-form>
             <v-text-field label="Name" name="name" type="text"></v-text-field>
             <v-text-field label="Manufacturer" name="manufacturer" type="text"></v-text-field>
-            <v-text-field label="Nicotine" name="nicotine" type="text"></v-text-field>
+            <v-text-field label="Caffeine" name="caffeine" type="text"></v-text-field>
+            <v-textarea label="Ingredients" auto-grow rows="3" row-height="15"></v-textarea>
           </v-form>
         </v-card-text>
         <v-card-actions>

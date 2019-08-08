@@ -8,6 +8,7 @@ import foodModule from './modules/food';
 import drinkModule from './modules/drink';
 import diaryModule from './modules/diary';
 import authModule from './modules/auth';
+import bugModule from './modules/bug';
 
 Vue.use(Vuex);
 
@@ -21,7 +22,8 @@ export default new Vuex.Store({
   food: foodModule,
   drink: drinkModule,
   diary: diaryModule,
-  auth: authModule
+  auth: authModule,
+  bug: bugModule
  },
  state: {}
 });
