@@ -9,6 +9,7 @@ import drinkModule from './modules/drink';
 import diaryModule from './modules/diary';
 import authModule from './modules/auth';
 import bugModule from './modules/bug';
+import tobaccoModule from './modules/tobacco';
 
 Vue.use(Vuex);
 
@@ -23,7 +24,8 @@ export default new Vuex.Store({
   drink: drinkModule,
   diary: diaryModule,
   auth: authModule,
-  bug: bugModule
+  bug: bugModule,
+  tobacco: tobaccoModule
  },
  state: {}
 });

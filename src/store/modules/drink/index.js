@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SELECT_DRINK, SELECT_DRINKS } from './types';
+import { DELETE_DRINK, INSERT_DRINK, SELECT_DRINK, SELECT_DRINKS, UPDATE_DRINK } from './types';
 
 const BASE_PATH = '/api/drinks';
 
@@ -20,37 +20,47 @@ export default {
  actions: {
   async selectDrink ({commit}, id) {
    try {
-
+    const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/' + id}`);
+    commit(SELECT_DRINK, response.data);
+    return response.data;
    } catch (error) {
-
+    console.log(error);
    }
   },
   async selectDrinks ({commit}) {
    try {
-
+    const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH}`);
+    commit(SELECT_DRINKS, response.data);
+    return response.data;
    } catch (error) {
-
+    console.log(error);
    }
   },
   async insertDrink ({commit}, payload) {
    try {
-
+    const response = await axios.post(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH}`, payload);
+    commit(INSERT_DRINK, response.data);
+    return response.data;
    } catch (error) {
-
+    console.log(error);
    }
   },
   async updateDrink ({commit}, payload) {
    try {
-
+    const response = await axios.put(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/' + payload.id}`, payload);
+    commit(UPDATE_DRINK, response.data);
+    return response.data;
    } catch (error) {
-
+    console.log(error);
    }
   },
   async deleteDrink ({commit}, payload) {
    try {
-
+    const response = await axios.delete(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH}` + '/' + payload.id);
+    commit(DELETE_DRINK, response.data);
+    return response.data;
    } catch (error) {
-
+    console.log(error);
    }
   }
  },
