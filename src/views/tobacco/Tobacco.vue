@@ -26,6 +26,7 @@
     {text: 'Name', value: 'name'},
     {text: 'Manufacturer', value: 'manufacturer'},
     {text: 'Nicotine', value: 'nicotine'},
+    {text: 'Size', value: 'size'},
    ],
   }),
 
