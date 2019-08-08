@@ -66,6 +66,13 @@ export default {
  },
  getters: {
   nootropics: state => state.nootropics,
-  nootropic: state => state.nootropic
+  nootropic: state => state.nootropic,
+  nootropicOptions (state) {
+   const options = [];
+   state.nootropics.map(n => {
+    options.push(n.name);
+   });
+   return options;
+  }
  }
 };

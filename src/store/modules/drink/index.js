@@ -66,6 +66,13 @@ export default {
  },
  getters: {
   drinks: state => state.drinks,
-  drink: state => state.drink
+  drink: state => state.drink,
+  drinkOptions (state) {
+   const options = [];
+   state.drinks.map(d => {
+    options.push(d.name);
+   });
+   return options;
+  }
  }
 };

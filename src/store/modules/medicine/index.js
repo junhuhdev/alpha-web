@@ -67,6 +67,13 @@ export default {
  },
  getters: {
   medicines: state => state.medicines,
-  medicine: state => state.medicine
+  medicine: state => state.medicine,
+  medicineOptions (state) {
+   const options = [];
+   state.medicines.map(m => {
+    options.push(m.name);
+   });
+   return options;
+  }
  }
 };

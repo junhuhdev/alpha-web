@@ -66,6 +66,13 @@ export default {
  },
  getters: {
   foods: state => state.foods,
-  food: state => state.food
+  food: state => state.food,
+  foodOptions (state) {
+   const options = [];
+   state.foods.map(f => {
+    options.push(f.name);
+   });
+   return options;
+  }
  }
 };

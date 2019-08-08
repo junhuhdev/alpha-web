@@ -50,6 +50,13 @@ export default {
  },
  getters: {
   vitamins: state => state.vitamins,
-  vitamin: state => state.vitamin
+  vitamin: state => state.vitamin,
+  vitaminOptions (state) {
+   const options = [];
+   state.vitamins.map(v => {
+    options.push(v.name);
+   });
+   return options;
+  }
  }
 };

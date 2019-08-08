@@ -12,7 +12,7 @@
             <v-select :items="severity" label="Energy" type="text"></v-select>
             <v-select :items="severity" label="Productivity" type="text"></v-select>
             <v-combobox :items="medicines" label="Medicines" multiple chips></v-combobox>
-            <v-combobox :items="vitamins" label="Vitamins" multiple chips></v-combobox>
+            <v-combobox :items="vitaminOptions" label="Vitamins" multiple chips></v-combobox>
             <v-combobox :items="nootropics" label="Nootropics" multiple chips></v-combobox>
             <v-combobox :items="vitamins" label="Bugs" multiple chips></v-combobox>
             <v-textarea label="Comment" auto-grow rows="3" row-height="15"></v-textarea>
@@ -33,7 +33,28 @@
    medicines: ['attentin 10mg', 'alvedon'],
    vitamins: ['vitamin-d 5000UI', 'omega-3'],
    nootropics: ['alpha-brain', 'piracetam']
-  })
+  }),
+
+  computed: {
+   medicines() {
+    return this.$store.getters.medicines;
+   },
+   medicineOptions() {
+    return this.$store.getters.medicineOptions;
+   },
+   vitamins () {
+    return this.$store.getters.vitamins;
+   },
+   vitaminOptions() {
+    return this.$store.getters.vitaminOptions;
+   },
+   nootropics () {
+    return this.$store.getters.nootropics;
+   },
+   nootropicOptions() {
+    return this.$store.getters.nootropicOptions;
+   }
+  }
  };
 </script>
 <style scoped>

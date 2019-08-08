@@ -66,6 +66,13 @@ export default {
  },
  getters: {
   tobaccos: state => state.tobaccos,
-  tobacco: state => state.tobacco
+  tobacco: state => state.tobacco,
+  tobaccoOptions (state) {
+   const options = [];
+   state.tobaccos.map(t => {
+    options.push(t.name);
+   });
+   return options;
+  }
  }
 };

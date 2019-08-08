@@ -66,6 +66,13 @@ export default {
  },
  getters: {
   bugs: state => state.bugs,
-  bug: state => state.bug
+  bug: state => state.bug,
+  bugOptions (state) {
+   const options = [];
+   state.bugs.map(b => {
+    options.push(b.name);
+   });
+   return options;
+  }
  }
 };
