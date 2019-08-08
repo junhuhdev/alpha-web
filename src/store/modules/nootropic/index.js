@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SELECT_NOOTROPIC, SELECT_NOOTROPICS } from './types';
+import { DELETE_NOOTROPIC, INSERT_NOOTROPIC, SELECT_NOOTROPIC, SELECT_NOOTROPICS, UPDATE_NOOTROPIC } from './types';
 
 const BASE_PATH = '/api/nootropics';
 
@@ -20,37 +20,47 @@ export default {
  actions: {
   async selectNootropic ({commit}, id) {
    try {
-
+    const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/' + id}`);
+    commit(SELECT_NOOTROPIC, response.data);
+    return response.data;
    } catch (error) {
-
+    console.log(error);
    }
   },
   async selectNootropics ({commit}) {
    try {
-
+    const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH}`);
+    commit(SELECT_NOOTROPICS, response.data);
+    return response.data;
    } catch (error) {
-
+    console.log(error);
    }
   },
   async insertNootropic ({commit}, payload) {
    try {
-
+    const response = await axios.post(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH}`, payload);
+    commit(INSERT_NOOTROPIC, response.data);
+    return response.data;
    } catch (error) {
-
+    console.log(error);
    }
   },
   async updateNootropic ({commit}, payload) {
    try {
-
+    const response = await axios.put(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/' + payload.id}`, payload);
+    commit(UPDATE_NOOTROPIC, response.data);
+    return response.data;
    } catch (error) {
-
+    console.log(error);
    }
   },
   async deleteNootropic ({commit}, payload) {
    try {
-
+    const response = await axios.delete(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH}` + '/' + payload.id);
+    commit(DELETE_NOOTROPIC, response.data);
+    return response.data;
    } catch (error) {
-
+    console.log(error);
    }
   }
  },

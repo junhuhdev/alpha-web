@@ -4,11 +4,10 @@
       <span>{{item.title}}</span>
       <v-icon>{{item.icon}}</v-icon>
     </v-btn>
-
-<!--    <v-btn value="recent">-->
-<!--      <span>Recent</span>-->
-<!--      <v-icon>history</v-icon>-->
-<!--    </v-btn>-->
+    <!--    <v-btn value="recent">-->
+    <!--      <span>Recent</span>-->
+    <!--      <v-icon>history</v-icon>-->
+    <!--    </v-btn>-->
   </v-bottom-navigation>
 </template>
 <script>

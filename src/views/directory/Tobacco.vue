@@ -31,7 +31,7 @@
 
   computed: {
    tobaccos () {
-    return this.$store.getters.tobacco;
+    return this.$store.getters.tobaccos;
    }
   },
 
