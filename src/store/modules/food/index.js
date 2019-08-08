@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { SELECT_FOOD, SELECT_FOODS } from './types';
 
-const BASE_PATH = '/foods';
+const BASE_PATH = '/api/foods';
 
 export default {
  namespaced: false,

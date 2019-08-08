@@ -1,7 +1,7 @@
 import { DELETE_MEDICINE, INSERT_MEDICINE, SELECT_MEDICINE, SELECT_MEDICINES, UPDATE_MEDICINE } from './types';
 import axios from 'axios';
 
-const BASE_PATH = '/medicines';
+const BASE_PATH = '/api/medicines';
 
 export default {
  namespaced: false,

@@ -6,14 +6,14 @@
           <v-toolbar-title>Login user</v-toolbar-title>
         </v-toolbar>
         <v-card-text>
-          <v-form>
-            <v-text-field label="Login" name="login" prepend-icon="mdi-account" type="text"></v-text-field>
-            <v-text-field label="Password" name="password" prepend-icon="mdi-lock" type="password"></v-text-field>
+          <v-form @submit="login">
+            <v-text-field v-model="username" label="Login" name="login" prepend-icon="mdi-account" type="text"></v-text-field>
+            <v-text-field v-model="password" label="Password" name="password" prepend-icon="mdi-lock" type="password"></v-text-field>
           </v-form>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary">Login</v-btn>
+          <v-btn @click="login" color="primary">Login</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -21,7 +21,18 @@
 </template>
 <script>
  export default {
-  name: 'Login'
+  data: () => ({
+   username: '',
+   password: ''
+  }),
+
+  methods: {
+   async login () {
+    const {username, password} = this;
+    const res = await this.$store.dispatch('login', {username, password});
+
+   }
+  }
  };
 </script>
 <style scoped>

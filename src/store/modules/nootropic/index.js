@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { SELECT_NOOTROPIC, SELECT_NOOTROPICS } from './types';
 
-const BASE_PATH = '/nootropics';
+const BASE_PATH = '/api/nootropics';
 
 export default {
  namespaced: false,

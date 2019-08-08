@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { SELECT_DRINK, SELECT_DRINKS } from './types';
 
-const BASE_PATH = '/drinks';
+const BASE_PATH = '/api/drinks';
 
 export default {
  namespaced: false,

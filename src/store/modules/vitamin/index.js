@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { SELECT_VITAMIN, SELECT_VITAMINS } from './types';
 
-const BASE_PATH = '/vitamins';
+const BASE_PATH = '/api/vitamins';
 
 export default {
  namespaced: false,
