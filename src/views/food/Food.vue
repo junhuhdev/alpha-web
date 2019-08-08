@@ -24,20 +24,21 @@
    search: '',
    headers: [
     {text: 'Name', value: 'name'},
-    {text: 'Manufacturer', value: 'manufacturer'},
     {text: 'Ingredients', value: 'ingredients'},
     {text: 'Category', value: 'category'},
-    {text: 'Contains', value: 'contains'},
-    {text: 'Calories', value: 'calories'},
-   ],
-   foods: [
-    {name: 'Gröt', manufacturer: 'ABBA', ingredients: 'blåbär, gröt, havremjölk', category: 'breakfast', contains: 'gluten-free', calories: '200 cal'},
-    {name: 'Gröt', manufacturer: 'ABBA', ingredients: 'blåbär, gröt, havremjölk', category: 'breakfast', contains: 'gluten-free', calories: '200 cal'},
-    {name: 'Gröt', manufacturer: 'ABBA', ingredients: 'blåbär, gröt, havremjölk', category: 'breakfast', contains: 'gluten-free', calories: '200 cal'},
-    {name: 'Gröt', manufacturer: 'ABBA', ingredients: 'blåbär, gröt, havremjölk', category: 'breakfast', contains: 'gluten-free', calories: '200 cal'},
-    {name: 'Gröt', manufacturer: 'ABBA', ingredients: 'blåbär, gröt, havremjölk', category: 'breakfast', contains: 'gluten-free', calories: '200 cal'},
+    {text: 'Allergy', value: 'allergy'},
    ]
-  })
+  }),
+
+  computed: {
+   foods () {
+    return this.$store.getters.foods;
+   }
+  },
+
+  created () {
+   this.$store.dispatch('selectFoods');
+  }
  };
 </script>
 <style scoped>

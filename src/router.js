@@ -19,14 +19,14 @@ import Vitamin from './views/vitamin/Vitamin';
 import Medicine from './views/medicine/Medicine';
 import Bug from './views/bug/Bug';
 import Food from './views/food/Food';
-import CreateTobacco from './views/directory/CreateTobacco';
+import CreateTobacco from './views/tobacco/CreateTobacco';
 import Oura from './views/integration/oura/Oura';
 import SmartScale from './views/integration/nokia/SmartScale';
 import Fitbit from './views/integration/fitbit/Fitbit';
 import CreateNootropic from './views/nootropic/CreateNootropic';
 import Nootropic from './views/nootropic/Nootropic';
 import store from './store/store';
-import Tobacco from './views/directory/Tobacco';
+import Tobacco from './views/tobacco/Tobacco';
 import CreateDrink from './views/drink/CreateDrink';
 import Drink from './views/drink/Drink';
 
