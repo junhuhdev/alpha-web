@@ -9,7 +9,6 @@
   </v-app>
 </template>
 <script>
- import HelloWorld from './components/HelloWorld';
  import NavbarHeader from './components/common/NavbarHeader';
  import NavbarBottom from './components/common/NavbarBottom';
  import NavigationDrawer from './components/common/NavigationDrawer';
@@ -20,7 +19,6 @@
    NavigationDrawer,
    NavbarBottom,
    NavbarHeader,
-   HelloWorld,
   },
   data: () => ({
    //

@@ -25,7 +25,7 @@ import SmartScale from './views/integration/nokia/SmartScale';
 import Fitbit from './views/integration/fitbit/Fitbit';
 import CreateNootropic from './views/nootropic/CreateNootropic';
 import Nootropic from './views/nootropic/Nootropic';
-import store from './store/store'
+import store from './store/store';
 
 Vue.use(Router);
 
@@ -60,7 +60,7 @@ export default new Router({
   {path: '/create-diary', name: 'create-diary', component: CreateDiary},
   {path: '/create-stack', name: 'create-stack', component: CreateStack},
   /** Directory routes */
-  {path: '/vitamin', name: 'vitamin', component: Vitamin},
+  {path: '/vitamin', name: 'vitamin', component: Vitamin, beforeEnter: ifAuthenticated},
   {path: '/medicine', name: 'medicine', component: Medicine, beforeEnter: ifAuthenticated},
   {path: '/bug', name: 'bug', component: Bug},
   {path: '/food', name: 'food', component: Food},

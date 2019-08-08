@@ -8,7 +8,8 @@
         </v-toolbar-title>
       </div>
       <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn text v-for="item in items" :key="item.title" :to="item.link">{{item.title}}</v-btn>
+        <v-btn v-if="item.public && !loggedIn" text v-for="item in items" :key="item.title" :to="item.link">{{item.title}}</v-btn>
+        <v-btn v-if="!item.public && loggedIn" text v-for="item in items" :key="item.title" :to="item.link">{{item.title}}</v-btn>
       </v-toolbar-items>
       <v-menu v-for="item in dropdownItems" :key="item.title">
         <template v-slot:activator="{ on }">
@@ -34,6 +35,9 @@
           <v-list-item v-for="dropdownIcon in dropdownIcons" :key="dropdownIcon.title" @click="() => {}" :to="dropdownIcon.link">
             <v-list-item-title>{{dropdownIcon.title}}</v-list-item-title>
           </v-list-item>
+          <v-list-item v-if="loggedIn" @click="logout">
+            <v-list-item-title>Logout</v-list-item-title>
+          </v-list-item>
         </v-list>
       </v-menu>
     </v-app-bar>
@@ -57,8 +61,8 @@
   data: () => ({
    drawer: null,
    items: [
-    {title: 'Login', link: '/login', icon: 'home'},
-    {title: 'Register', link: '/register', icon: 'home'},
+    {title: 'Login', link: '/login', icon: 'home', public: true},
+    {title: 'Register', link: '/register', icon: 'home', public: true},
     {title: 'User', link: '/user', icon: 'home'},
     {title: 'Dashboard', link: '/dashboard', icon: 'home'},
    ],
@@ -93,9 +97,20 @@
    dropdownIcons: [
     {title: 'Settings', link: '/settings'},
     {title: 'Profile', link: '/profile'},
-    {title: 'Logout', link: '/logout'},
    ]
-  })
+  }),
+
+  methods: {
+   logout () {
+    this.$store.dispatch('logout').then(() => this.$router.push('/'));
+   }
+  },
+
+  computed: {
+   loggedIn () {
+    return this.$store.getters.isAuthenticated;
+   }
+  }
 
  };
 </script>

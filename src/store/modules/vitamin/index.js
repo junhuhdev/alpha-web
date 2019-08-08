@@ -3,6 +3,8 @@ import { SELECT_VITAMIN, SELECT_VITAMINS } from './types';
 
 const BASE_PATH = '/api/vitamins';
 
+axios.defaults.headers.common['Authorization'] = localStorage.getItem('user-token');
+
 export default {
  namespaced: false,
  state: {

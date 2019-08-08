@@ -1,7 +1,9 @@
 <template>
-<div>
-  <h1>Welcome to Alpha</h1>
-</div>
+  <div>
+    <center>
+      <h1>Welcome to Heartbeat</h1>
+    </center>
+  </div>
 </template>
 <script>
  export default {

@@ -1,10 +1,12 @@
 import { AUTH_ERROR, AUTH_LOGOUT, AUTH_REQUEST, AUTH_SUCCESS } from './types';
 import axios from 'axios';
 
+export const USER_TOKEN = 'user-token';
+
 export default {
  namespaced: false,
  state: {
-  token: localStorage.getItem('user-token'),
+  token: localStorage.getItem(USER_TOKEN),
   status: '',
   hasLoadedOnce: false
  },
@@ -35,7 +37,7 @@ export default {
     const token = response.headers['authorization'];
     console.log('Successful login', token);
     axios.defaults.headers.common['Authorization'] = token;
-    localStorage.setItem('user-token', token);
+    localStorage.setItem(USER_TOKEN, token);
     commit(AUTH_SUCCESS, token);
     return response.data;
    } catch (error) {
@@ -44,7 +46,8 @@ export default {
   },
 
   async logout ({commit}) {
-
+   commit(AUTH_LOGOUT);
+   localStorage.removeItem(USER_TOKEN);
   }
  },
  getters: {
