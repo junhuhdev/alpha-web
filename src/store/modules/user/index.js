@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { SELECT_USER, SELECT_USERS } from './types';
 
 const BASE_PATH = '/users';

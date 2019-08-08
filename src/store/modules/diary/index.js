@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { SELECT_DIARIES, SELECT_DIARY } from './types';
 
 const BASE_PATH = '/api/diaries';

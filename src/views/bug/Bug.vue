@@ -1,6 +1,6 @@
 <template>
   <v-layout align-center justify-center>
-    <v-flex xs12 sm8 md4>
+    <v-flex xs12 sm8 md8>
       <v-card class="elevation-12">
         <v-toolbar color="primary" dark flat>
           <v-toolbar-title>Available Bugs</v-toolbar-title>
@@ -23,9 +23,10 @@
   data: () => ({
    search: '',
    headers: [
-    {text: 'Name', value: 'name'},
+    {text: 'Name', value: 'name', width: '150'},
     {text: 'Description', value: 'description'},
     {text: 'Severity', value: 'severity'},
+    {text: 'Reason', value: 'reason'},
    ],
   }),
 

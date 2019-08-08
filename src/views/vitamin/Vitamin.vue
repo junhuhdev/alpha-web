@@ -23,7 +23,6 @@
   data: () => ({
    search: '',
    headers: [
-    {text: 'Created', value: 'created'},
     {text: 'Name', value: 'name'},
     {text: 'Manufacturer', value: 'manufacturer'},
     {text: 'Dosage', value: 'dosage'},
