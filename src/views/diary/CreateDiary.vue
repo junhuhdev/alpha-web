@@ -11,10 +11,12 @@
             <v-select :items="severity" label="Mood" type="text"></v-select>
             <v-select :items="severity" label="Energy" type="text"></v-select>
             <v-select :items="severity" label="Productivity" type="text"></v-select>
-            <v-combobox :items="medicines" label="Medicines" multiple chips></v-combobox>
+            <v-combobox :items="medicineOptions" label="Medicines" multiple chips></v-combobox>
             <v-combobox :items="vitaminOptions" label="Vitamins" multiple chips></v-combobox>
-            <v-combobox :items="nootropics" label="Nootropics" multiple chips></v-combobox>
-            <v-combobox :items="vitamins" label="Bugs" multiple chips></v-combobox>
+            <v-combobox :items="drinkOptions" label="Drinks" multiple chips></v-combobox>
+            <v-combobox :items="tobaccoOptions" label="Tobacco" multiple chips></v-combobox>
+            <v-combobox :items="nootropicOptions" label="Nootropics" multiple chips></v-combobox>
+            <v-combobox :items="bugOptions" label="Bugs" multiple chips></v-combobox>
             <v-textarea label="Comment" auto-grow rows="3" row-height="15"></v-textarea>
           </v-form>
         </v-card-text>
@@ -29,31 +31,55 @@
 <script>
  export default {
   data: () => ({
-   severity: [1, 2, 3, 4, 5],
-   medicines: ['attentin 10mg', 'alvedon'],
-   vitamins: ['vitamin-d 5000UI', 'omega-3'],
-   nootropics: ['alpha-brain', 'piracetam']
+   severity: [1, 2, 3, 4, 5]
   }),
 
   computed: {
-   medicines() {
+   medicines () {
     return this.$store.getters.medicines;
    },
-   medicineOptions() {
+   medicineOptions () {
     return this.$store.getters.medicineOptions;
    },
    vitamins () {
     return this.$store.getters.vitamins;
    },
-   vitaminOptions() {
+   vitaminOptions () {
     return this.$store.getters.vitaminOptions;
    },
    nootropics () {
     return this.$store.getters.nootropics;
    },
-   nootropicOptions() {
+   nootropicOptions () {
     return this.$store.getters.nootropicOptions;
+   },
+   drinks () {
+    return this.$store.getters.drinks;
+   },
+   drinkOptions () {
+    return this.$store.getters.drinkOptions;
+   },
+   tobaccos () {
+    return this.$store.getters.tobaccos;
+   },
+   tobaccoOptions () {
+    return this.$store.getters.tobaccoOptions;
+   },
+   bugs () {
+    return this.$store.getters.bugs;
+   },
+   bugOptions () {
+    return this.$store.getters.bugOptions;
    }
+  },
+
+  created () {
+   this.$store.dispatch('selectMedicines');
+   this.$store.dispatch('selectVitamins');
+   this.$store.dispatch('selectNootropics');
+   this.$store.dispatch('selectDrinks');
+   this.$store.dispatch('selectTobaccos');
+   this.$store.dispatch('selectBugs');
   }
  };
 </script>
