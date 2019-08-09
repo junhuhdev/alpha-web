@@ -7,15 +7,16 @@
         </v-toolbar>
         <v-card-text>
           <v-form>
+            <v-text-field label="Total sleep hours" name="sleep" type="number"></v-text-field>
             <v-select :items="severity" label="Sharpness" type="text"></v-select>
             <v-select :items="severity" label="Mood" type="text"></v-select>
             <v-select :items="severity" label="Energy" type="text"></v-select>
             <v-select :items="severity" label="Productivity" type="text"></v-select>
             <v-combobox :items="medicineOptions" label="Medicines" multiple chips></v-combobox>
             <v-combobox :items="vitaminOptions" label="Vitamins" multiple chips></v-combobox>
+            <v-combobox :items="nootropicOptions" label="Nootropics" multiple chips></v-combobox>
             <v-combobox :items="drinkOptions" label="Drinks" multiple chips></v-combobox>
             <v-combobox :items="tobaccoOptions" label="Tobacco" multiple chips></v-combobox>
-            <v-combobox :items="nootropicOptions" label="Nootropics" multiple chips></v-combobox>
             <v-combobox :items="bugOptions" label="Bugs" multiple chips></v-combobox>
             <v-textarea label="Comment" auto-grow rows="3" row-height="15"></v-textarea>
           </v-form>
