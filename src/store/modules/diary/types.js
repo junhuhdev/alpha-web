@@ -1,5 +1,6 @@
 export const SELECT_DIARY = 'SELECT_DIARY';
 export const SELECT_DIARIES = 'SELECT_DIARIES';
+export const SELECT_ACTIVITIES = 'SELECT_ACTIVITIES';
 export const INSERT_DIARY = 'INSERT_DIARY';
 export const UPDATE_DIARY = 'UPDATE_DIARY';
 export const DELETE_DIARY = 'DELETE_DIARY';

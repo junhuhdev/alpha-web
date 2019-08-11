@@ -16,14 +16,15 @@
             <v-combobox :items="vitaminOptions" label="Vitamins" multiple chips></v-combobox>
             <v-combobox :items="nootropicOptions" label="Nootropics" multiple chips></v-combobox>
             <v-combobox :items="drinkOptions" label="Drinks" multiple chips></v-combobox>
-            <v-combobox :items="tobaccoOptions" label="Tobacco" multiple chips></v-combobox>
+            <v-combobox :items="tobaccoOptions" label="Tobaccos" multiple chips></v-combobox>
             <v-combobox :items="bugOptions" label="Bugs" multiple chips></v-combobox>
+            <v-combobox :items="activityOptions" label="Activities" multiple chips></v-combobox>
             <v-textarea label="Comment" auto-grow rows="3" row-height="15"></v-textarea>
           </v-form>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary">Create</v-btn>
+          <v-btn @click="create" color="primary">Create</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -71,6 +72,9 @@
    },
    bugOptions () {
     return this.$store.getters.bugOptions;
+   },
+   activityOptions () {
+    return this.$store.getters.activityOptions;
    }
   },
 
@@ -81,6 +85,14 @@
    this.$store.dispatch('selectDrinks');
    this.$store.dispatch('selectTobaccos');
    this.$store.dispatch('selectBugs');
+   this.$store.dispatch('selectActivities');
+  },
+
+  methods: {
+   create () {
+    this.$store.dispatch('insertDiary');
+
+   }
   }
  };
 </script>

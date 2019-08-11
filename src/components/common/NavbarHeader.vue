@@ -74,7 +74,6 @@
       {title: 'Nootropic Stack', link: '/stack'},
       {title: 'Create diary', link: '/create-diary'},
       {title: 'Create food diary', link: '/create-food-diary'},
-      {title: 'Create stack', link: '/create-stack'},
      ]
     },
     {

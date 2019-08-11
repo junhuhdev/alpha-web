@@ -1,4 +1,5 @@
-import { SELECT_DIARIES, SELECT_DIARY } from './types';
+import { DELETE_DIARY, INSERT_DIARY, SELECT_ACTIVITIES, SELECT_DIARIES, SELECT_DIARY, UPDATE_DIARY } from './types';
+import axios from 'axios';
 
 const BASE_PATH = '/api/diaries';
 
@@ -6,7 +7,8 @@ export default {
  namespaced: false,
  state: {
   diary: {},
-  diaries: []
+  diaries: [],
+  activities: []
  },
  mutations: {
   [SELECT_DIARY] (state, payload) {
@@ -14,47 +16,70 @@ export default {
   },
   [SELECT_DIARIES] (state, payload) {
    state.diaries = payload;
+  },
+  [SELECT_ACTIVITIES] (state, payload) {
+   state.activities = payload;
   }
  },
  actions: {
   async selectDiary ({commit}, id) {
    try {
-
+    const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/' + id}`);
+    commit(SELECT_DIARY, response.data);
+    return response.data;
    } catch (error) {
-
+    console.log(error);
    }
   },
   async selectDiaries ({commit}) {
    try {
-
+    const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH}`);
+    commit(SELECT_DIARIES, response.data);
+    return response.data;
    } catch (error) {
-
+    console.log(error);
+   }
+  },
+  async selectActivities ({commit}) {
+   try {
+    const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/activities'}`);
+    commit(SELECT_ACTIVITIES, response.data);
+    return response.data;
+   } catch (error) {
+    console.log(error);
    }
   },
   async insertDiary ({commit}, payload) {
    try {
-
+    const response = await axios.post(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH}`, payload);
+    commit(INSERT_DIARY, response.data);
+    return response.data;
    } catch (error) {
-
+    console.log(error);
    }
   },
   async updateDiary ({commit}, payload) {
    try {
-
+    const response = await axios.put(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/' + payload.id}`, payload);
+    commit(UPDATE_DIARY, response.data);
+    return response.data;
    } catch (error) {
-
+    console.log(error);
    }
   },
   async deleteDiary ({commit}, payload) {
    try {
-
+    const response = await axios.delete(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH}` + '/' + payload.id);
+    commit(DELETE_DIARY, response.data);
+    return response.data;
    } catch (error) {
-
+    console.log(error);
    }
   }
  },
  getters: {
   diaries: state => state.diaries,
-  diary: state => state.diary
+  diary: state => state.diary,
+  activityOptions: state => state.activities
  }
 };

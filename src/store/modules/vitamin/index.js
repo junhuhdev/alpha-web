@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { SELECT_VITAMIN, SELECT_VITAMINS } from './types';
+import { DELETE_VITAMIN, INSERT_VITAMIN, SELECT_VITAMIN, SELECT_VITAMINS, UPDATE_VITAMIN } from './types';
 
 const BASE_PATH = '/api/vitamins';
 
@@ -39,13 +39,31 @@ export default {
    }
   },
   async insertVitamin ({commit}, payload) {
-
+   try {
+    const response = await axios.post(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH}`, payload);
+    commit(INSERT_VITAMIN, response.data);
+    return response.data;
+   } catch (error) {
+    console.log(error);
+   }
   },
   async updateVitamin ({commit}, payload) {
-
+   try {
+    const response = await axios.put(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/' + payload.id}`, payload);
+    commit(UPDATE_VITAMIN, response.data);
+    return response.data;
+   } catch (error) {
+    console.log(error);
+   }
   },
   async deleteVitamin ({commit}, payload) {
-
+   try {
+    const response = await axios.delete(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH}` + '/' + payload.id);
+    commit(DELETE_VITAMIN, response.data);
+    return response.data;
+   } catch (error) {
+    console.log(error);
+   }
   }
  },
  getters: {
