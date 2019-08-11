@@ -29,6 +29,10 @@
             <template v-slot:expanded-item="{item}">
               <td :colspan="headers.length">Comment: {{item.comment}}</td>
             </template>
+            <template v-slot:item.action="{item}">
+              <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
+              <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
+            </template>
           </v-data-table>
         </v-card-text>
       </v-card>
@@ -38,6 +42,7 @@
 <script>
  export default {
   data: () => ({
+   dialog: false,
    search: '',
    headers: [
     {text: 'Created', value: 'createdDate', width: '110'},
@@ -47,12 +52,13 @@
     {text: 'Energy', value: 'energy', width: '10'},
     {text: 'Productivity', value: 'productivity', width: '10'},
     {text: 'Medicines', value: 'medicineTags', width: '200'},
-    {text: 'Vitamins', value: 'vitaminTags', width: '400'},
+    {text: 'Vitamins', value: 'vitaminTags', width: '200'},
     {text: 'Nootropics', value: 'nootropicTags'},
     {text: 'Drinks', value: 'drinkTags'},
     {text: 'Tobaccos', value: 'tobaccoTags'},
     {text: 'Bugs', value: 'bugTags'},
     {text: 'Activities', value: 'activities'},
+    {text: 'Actions', value: 'action', sortable: false},
    ],
   }),
 
@@ -72,6 +78,14 @@
     else if (severity === 3) return 'orange';
     else return 'green';
    },
+
+   editItem () {
+
+   },
+
+   deleteItem () {
+
+   }
   }
  };
 </script>
