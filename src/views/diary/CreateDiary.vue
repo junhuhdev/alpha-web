@@ -102,6 +102,7 @@
   },
 
   methods: {
+
    create () {
     const selectedMedicines = [];
     this.medicines.map(medicine => {
