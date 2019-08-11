@@ -12,6 +12,7 @@
               :headers="headers"
               :items="diaries"
               :search="search"
+              show-expand
           >
             <template v-slot:item.sharpness="{item}">
               <v-chip :color="getColor(item.sharpness)" dark>{{item.sharpness}}</v-chip>
@@ -24,6 +25,9 @@
             </template>
             <template v-slot:item.productivity="{item}">
               <v-chip :color="getColor(item.productivity)" dark>{{item.productivity}}</v-chip>
+            </template>
+            <template v-slot:expanded-item="{item}">
+              <td :colspan="headers.length">Comment: {{item.comment}}</td>
             </template>
           </v-data-table>
         </v-card-text>
