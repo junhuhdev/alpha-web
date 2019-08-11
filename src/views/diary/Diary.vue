@@ -21,8 +21,8 @@
                     <v-btn v-on="on" absolute small dark fab right color="pink">
                       <v-icon>mdi-plus</v-icon>
                     </v-btn>
-                    <!--                    <v-btn color="primary" dark class="mb-2" v-on="on">New Item</v-btn>-->
                   </template>
+                  <!--                  <EditDiary v-bind:edited-item="editedItem" v-bind:form-title="formTitle"></EditDiary>-->
                   <v-card>
                     <v-card-title>
                       <span class="headline">{{formTitle}}</span>
@@ -77,7 +77,10 @@
   </v-layout>
 </template>
 <script>
+ import EditDiary from './EditDiary';
+
  export default {
+  components: {EditDiary},
   data: () => ({
    dialog: false,
    search: '',
