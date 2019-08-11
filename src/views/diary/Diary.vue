@@ -36,13 +36,13 @@
   data: () => ({
    search: '',
    headers: [
-    {text: 'Created', value: 'createdDate'},
+    {text: 'Created', value: 'createdDate', width: '110'},
     {text: 'Sleep hours', value: 'totalSleepHours'},
     {text: 'Sharpness', value: 'sharpness', width: '10'},
     {text: 'Mood', value: 'mood', width: '10'},
     {text: 'Energy', value: 'energy', width: '10'},
     {text: 'Productivity', value: 'productivity', width: '10'},
-    {text: 'Medicines', value: 'medicineTags'},
+    {text: 'Medicines', value: 'medicineTags', width: '200'},
     {text: 'Vitamins', value: 'vitaminTags', width: '400'},
     {text: 'Nootropics', value: 'nootropicTags'},
     {text: 'Drinks', value: 'drinkTags'},
