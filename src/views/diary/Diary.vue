@@ -16,16 +16,12 @@
           >
             <template v-slot:top>
               <v-toolbar flat color="white">
-                <v-toolbar-title>My CRUD</v-toolbar-title>
-                <v-divider
-                    class="mx-4"
-                    inset
-                    vertical
-                ></v-divider>
-                <v-spacer></v-spacer>
                 <v-dialog v-model="dialog" max-width="500px">
                   <template v-slot:activator="{ on }">
-                    <v-btn color="primary" dark class="mb-2" v-on="on">New Item</v-btn>
+                    <v-btn v-on="on" absolute small dark fab right color="pink">
+                      <v-icon>mdi-plus</v-icon>
+                    </v-btn>
+                    <!--                    <v-btn color="primary" dark class="mb-2" v-on="on">New Item</v-btn>-->
                   </template>
                   <v-card>
                     <v-card-title>
@@ -122,7 +118,6 @@
 
   watch: {
    dialog (val) {
-    console.log('DIALOG VALUE', this.dialog);
     val || this.close();
    }
   },
@@ -159,9 +154,8 @@
 
    close () {
     this.dialog = false;
-    console.log('CLOSED', this.dialog);
     setTimeout(() => {
-     this.editItem = Object.assign({}, this.defaultItem);
+     this.editedItem = Object.assign({}, this.defaultItem);
      this.editedIndex = -1;
     }, 300);
    }
