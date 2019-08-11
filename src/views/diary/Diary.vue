@@ -23,23 +23,31 @@
   data: () => ({
    search: '',
    headers: [
-    {text: 'Created', value: 'created'},
+    {text: 'Created', value: 'createdDate'},
+    {text: 'Sleep hours', value: 'totalSleepHours'},
     {text: 'Sharpness', value: 'sharpness'},
     {text: 'Mood', value: 'mood'},
     {text: 'Energy', value: 'energy'},
     {text: 'Productivity', value: 'productivity'},
-    {text: 'Medicines', value: 'medicines'},
-    {text: 'Vitamins', value: 'vitamins', width: '400'},
-    {text: 'Nootropics', value: 'nootropics'},
-    {text: 'Bugs', value: 'bugs'},
+    {text: 'Medicines', value: 'medicineTags'},
+    {text: 'Vitamins', value: 'vitaminTags', width: '400'},
+    {text: 'Nootropics', value: 'nootropicTags'},
+    {text: 'Drinks', value: 'drinkTags'},
+    {text: 'Tobaccos', value: 'tobaccoTags'},
+    {text: 'Bugs', value: 'bugTags'},
+    {text: 'Activities', value: 'activities'},
    ],
-   diaries: [
-    {created: '2019-08-12', sharpness: 5, mood: 4, energy: 5, productivity: 1, medicines: 'attentin(10mg),alvedon(100mg)', vitamins: 'omega-3,vitamin-d,vitamin-c,melatonin', nootropics: '', bugs: ''},
-    {created: '2019-07-12', sharpness: 5, mood: 4, energy: 5, productivity: 1, medicines: 'attentin(10mg),alvedon(100mg)', vitamins: 'omega-3,vitamin-d,vitamin-c,melatonin', nootropics: '', bugs: ''},
-    {created: '2019-03-02', sharpness: 5, mood: 4, energy: 5, productivity: 1, medicines: 'attentin(10mg),alvedon(100mg)', vitamins: 'omega-3,vitamin-d,vitamin-c,melatonin', nootropics: '', bugs: 'sluggishness'},
-    {created: '2019-01-01', sharpness: 5, mood: 4, energy: 5, productivity: 1, medicines: 'attentin(10mg),alvedon(100mg)', vitamins: 'omega-3,vitamin-d,vitamin-c,melatonin', nootropics: '', bugs: ''},
-   ]
-  })
+  }),
+
+  computed: {
+   diaries () {
+    return this.$store.getters.diaries;
+   }
+  },
+
+  created () {
+   this.$store.dispatch('selectDiaries');
+  }
  };
 </script>
 <style scoped>
