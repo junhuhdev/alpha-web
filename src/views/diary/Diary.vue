@@ -14,6 +14,44 @@
               :search="search"
               show-expand
           >
+            <template v-slot:top>
+              <v-toolbar flat color="white">
+                <v-toolbar-title>My CRUD</v-toolbar-title>
+                <v-divider
+                    class="mx-4"
+                    inset
+                    vertical
+                ></v-divider>
+                <v-spacer></v-spacer>
+                <v-dialog v-model="dialog" max-width="500px">
+                  <template v-slot:activator="{ on }">
+                    <v-btn color="primary" dark class="mb-2" v-on="on">New Item</v-btn>
+                  </template>
+                  <v-card>
+                    <v-card-title>
+                      <span class="headline">{{formTitle}}</span>
+                    </v-card-title>
+                    <v-card-text>
+                      <v-container grid-list-md>
+                        <v-layout wrap>
+                          <v-flex xs12 sm6 md4>
+                            <v-text-field v-model="editedItem.totalSleepHours" label="totalSleepHours"></v-text-field>
+                          </v-flex>
+                          <v-flex xs12 sm6 md4>
+                            <v-text-field v-model="editedItem.sharpness" label="Sharpness"></v-text-field>
+                          </v-flex>
+                        </v-layout>
+                      </v-container>
+                    </v-card-text>
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
+                      <v-btn color="blue darken-1" text>Save</v-btn>
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
+              </v-toolbar>
+            </template>
             <template v-slot:item.sharpness="{item}">
               <v-chip :color="getColor(item.sharpness)" dark>{{item.sharpness}}</v-chip>
             </template>
@@ -29,9 +67,12 @@
             <template v-slot:expanded-item="{item}">
               <td :colspan="headers.length">Comment: {{item.comment}}</td>
             </template>
-            <template v-slot:item.action="{item}">
+            <template v-slot:item.action="{ item }">
               <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
               <v-icon small @click="deleteItem(item)">mdi-delete</v-icon>
+            </template>
+            <template v-slot:no-data>
+              <v-btn color="primary">Reset</v-btn>
             </template>
           </v-data-table>
         </v-card-text>
@@ -60,12 +101,39 @@
     {text: 'Activities', value: 'activities'},
     {text: 'Actions', value: 'action', sortable: false},
    ],
+   editedIndex: -1,
+   editedItem: {
+    totalSleepHours: 0,
+    sharpness: 0,
+    mood: 0,
+    energy: 0,
+    productivity: 0,
+    medicineTags: [],
+   },
+   defaultItem: {
+    totalSleepHours: 0,
+    sharpness: 0,
+    mood: 0,
+    energy: 0,
+    productivity: 0,
+    medicineTags: [],
+   }
   }),
+
+  watch: {
+   dialog (val) {
+    console.log('DIALOG VALUE', this.dialog);
+    val || this.close();
+   }
+  },
 
   computed: {
    diaries () {
     return this.$store.getters.diaries;
-   }
+   },
+   formTitle () {
+    return this.editedIndex === -1 ? 'New Item' : 'Edit Item';
+   },
   },
 
   created () {
@@ -79,12 +147,23 @@
     else return 'green';
    },
 
-   editItem () {
-
+   editItem (item) {
+    this.editedIndex = this.diaries.indexOf(item);
+    this.editedItem = Object.assign({}, item);
+    this.dialog = true;
    },
 
    deleteItem () {
 
+   },
+
+   close () {
+    this.dialog = false;
+    console.log('CLOSED', this.dialog);
+    setTimeout(() => {
+     this.editItem = Object.assign({}, this.defaultItem);
+     this.editedIndex = -1;
+    }, 300);
    }
   }
  };
