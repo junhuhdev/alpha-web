@@ -13,6 +13,7 @@
               :items="diaries"
               :search="search"
               show-expand
+              dense
           >
             <template v-slot:top>
               <v-toolbar flat color="white">
