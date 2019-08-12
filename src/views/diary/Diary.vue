@@ -19,7 +19,7 @@
               <v-toolbar flat color="white">
                 <v-dialog v-model="dialog" max-width="800px">
                   <template v-slot:activator="{ on }">
-                    <v-btn v-on="on" absolute small dark fab right color="red lighten-1">
+                    <v-btn v-on="on" absolute small dark fab right color="grey">
                       <v-icon>mdi-plus</v-icon>
                     </v-btn>
                   </template>
@@ -100,7 +100,7 @@
    search: '',
    headers: [
     {text: 'Created', value: 'createdDate', width: '110'},
-    {text: 'Sleep', value: 'totalSleepHours'},
+    {text: 'Sleep', value: 'totalSleepHours', width: '10'},
     {text: 'Sharp.', value: 'sharpness'},
     {text: 'Mood', value: 'mood'},
     {text: 'Energy', value: 'energy'},
