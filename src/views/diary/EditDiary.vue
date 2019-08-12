@@ -2,7 +2,7 @@
   <v-layout align-center justify-center>
     <v-flex xs12 sm8 md12>
       <v-card class="elevation-12">
-        <v-toolbar color="primary" dark flat>
+        <v-toolbar color="deep-purple accent-4" dark flat>
           <v-toolbar-title>Edit diary</v-toolbar-title>
         </v-toolbar>
         <v-card-text>
@@ -24,8 +24,8 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn text>Cancel</v-btn>
-          <v-btn text color="primary">Save</v-btn>
+          <v-btn color="warning">Cancel</v-btn>
+          <v-btn color="primary">Save</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
