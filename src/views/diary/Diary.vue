@@ -41,6 +41,21 @@
                 <v-chip small v-for="nootropic in item.nootropicTags" :key="nootropic">{{nootropic}}</v-chip>
               </v-chip-group>
             </template>
+            <template v-slot:item.drinkTags="{item}">
+              <v-chip-group multiple column>
+                <v-chip small v-for="drink in item.drinkTags" :key="drink">{{drink}}</v-chip>
+              </v-chip-group>
+            </template>
+            <template v-slot:item.tobaccoTags="{item}">
+              <v-chip-group>
+                <v-chip small v-for="tobacco in item.tobaccoTags" :key="tobacco">{{tobacco}}</v-chip>
+              </v-chip-group>
+            </template>
+            <template v-slot:item.bugTags="{item}">
+              <v-chip-group column dark>
+                <v-chip color="red" small v-for="bug in item.bugTags" :key="bug">{{bug}}</v-chip>
+              </v-chip-group>
+            </template>
             <template v-slot:item.activities="{item}">
               <v-chip-group multiple column>
                 <v-chip small v-for="activity in item.activities" :key="activity">{{activity}}</v-chip>
@@ -92,9 +107,9 @@
     {text: 'Medicines', value: 'medicineTags', width: '200'},
     {text: 'Vitamins', value: 'vitaminTags', width: '200'},
     {text: 'Nootropics', value: 'nootropicTags', width: '200'},
-    {text: 'Drinks', value: 'drinkTags'},
-    {text: 'Tobaccos', value: 'tobaccoTags'},
-    {text: 'Bugs', value: 'bugTags'},
+    {text: 'Drinks', value: 'drinkTags', width: '170'},
+    {text: 'Tobaccos', value: 'tobaccoTags', width: '100'},
+    {text: 'Bugs', value: 'bugTags', width: '170'},
     {text: 'Activities', value: 'activities'},
     {text: 'Actions', value: 'action', sortable: false},
    ],
