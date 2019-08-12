@@ -86,6 +86,11 @@
     energy: 0,
     productivity: 0,
     medicineTags: [],
+    vitaminTags: [],
+    nootropicTags: [],
+    drinkTags: [],
+    tobaccoTags: [],
+    bugTags: [],
    },
    defaultItem: {
     totalSleepHours: 0,
@@ -94,6 +99,11 @@
     energy: 0,
     productivity: 0,
     medicineTags: [],
+    vitaminTags: [],
+    nootropicTags: [],
+    drinkTags: [],
+    tobaccoTags: [],
+    bugTags: [],
    }
   }),
 
