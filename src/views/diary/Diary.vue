@@ -26,6 +26,26 @@
                 </v-dialog>
               </v-toolbar>
             </template>
+            <template v-slot:item.medicineTags="{item}">
+              <v-chip-group multiple column>
+                <v-chip small v-for="medicine in item.medicineTags" :key="medicine">{{medicine}}</v-chip>
+              </v-chip-group>
+            </template>
+            <template v-slot:item.vitaminTags="{item}">
+              <v-chip-group multiple column>
+                <v-chip small v-for="vitamin in item.vitaminTags" :key="vitamin">{{vitamin}}</v-chip>
+              </v-chip-group>
+            </template>
+            <template v-slot:item.nootropicTags="{item}">
+              <v-chip-group multiple column>
+                <v-chip small v-for="nootropic in item.nootropicTags" :key="nootropic">{{nootropic}}</v-chip>
+              </v-chip-group>
+            </template>
+            <template v-slot:item.activities="{item}">
+              <v-chip-group multiple column>
+                <v-chip small v-for="activity in item.activities" :key="activity">{{activity}}</v-chip>
+              </v-chip-group>
+            </template>
             <template v-slot:item.sharpness="{item}">
               <v-chip :color="getColor(item.sharpness)" dark>{{item.sharpness}}</v-chip>
             </template>
@@ -71,7 +91,7 @@
     {text: 'Productivity', value: 'productivity', width: '10'},
     {text: 'Medicines', value: 'medicineTags', width: '200'},
     {text: 'Vitamins', value: 'vitaminTags', width: '200'},
-    {text: 'Nootropics', value: 'nootropicTags'},
+    {text: 'Nootropics', value: 'nootropicTags', width: '200'},
     {text: 'Drinks', value: 'drinkTags'},
     {text: 'Tobaccos', value: 'tobaccoTags'},
     {text: 'Bugs', value: 'bugTags'},
