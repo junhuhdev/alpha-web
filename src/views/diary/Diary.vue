@@ -16,35 +16,13 @@
           >
             <template v-slot:top>
               <v-toolbar flat color="white">
-                <v-dialog v-model="dialog" max-width="500px">
+                <v-dialog v-model="dialog" max-width="800px">
                   <template v-slot:activator="{ on }">
                     <v-btn v-on="on" absolute small dark fab right color="pink">
                       <v-icon>mdi-plus</v-icon>
                     </v-btn>
                   </template>
-                  <!--                  <EditDiary v-bind:edited-item="editedItem" v-bind:form-title="formTitle"></EditDiary>-->
-                  <v-card>
-                    <v-card-title>
-                      <span class="headline">{{formTitle}}</span>
-                    </v-card-title>
-                    <v-card-text>
-                      <v-container grid-list-md>
-                        <v-layout wrap>
-                          <v-flex xs12 sm6 md4>
-                            <v-text-field v-model="editedItem.totalSleepHours" label="totalSleepHours"></v-text-field>
-                          </v-flex>
-                          <v-flex xs12 sm6 md4>
-                            <v-text-field v-model="editedItem.sharpness" label="Sharpness"></v-text-field>
-                          </v-flex>
-                        </v-layout>
-                      </v-container>
-                    </v-card-text>
-                    <v-card-actions>
-                      <v-spacer></v-spacer>
-                      <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-                      <v-btn color="blue darken-1" text>Save</v-btn>
-                    </v-card-actions>
-                  </v-card>
+                  <EditDiary v-bind:diary="editedItem"></EditDiary>
                 </v-dialog>
               </v-toolbar>
             </template>
@@ -151,8 +129,7 @@
     this.dialog = true;
    },
 
-   deleteItem () {
-
+   deleteItem (item) {
    },
 
    close () {

@@ -31,6 +31,8 @@
   </v-layout>
 </template>
 <script>
+ import { mapGetters } from 'vuex';
+
  export default {
   data: () => ({
    selectedSleepHours: 0,
@@ -50,45 +52,21 @@
   }),
 
   computed: {
-   medicines () {
-    return this.$store.getters.medicines;
-   },
-   medicineOptions () {
-    return this.$store.getters.medicineOptions;
-   },
-   vitamins () {
-    return this.$store.getters.vitamins;
-   },
-   vitaminOptions () {
-    return this.$store.getters.vitaminOptions;
-   },
-   nootropics () {
-    return this.$store.getters.nootropics;
-   },
-   nootropicOptions () {
-    return this.$store.getters.nootropicOptions;
-   },
-   drinks () {
-    return this.$store.getters.drinks;
-   },
-   drinkOptions () {
-    return this.$store.getters.drinkOptions;
-   },
-   tobaccos () {
-    return this.$store.getters.tobaccos;
-   },
-   tobaccoOptions () {
-    return this.$store.getters.tobaccoOptions;
-   },
-   bugs () {
-    return this.$store.getters.bugs;
-   },
-   bugOptions () {
-    return this.$store.getters.bugOptions;
-   },
-   activityOptions () {
-    return this.$store.getters.activityOptions;
-   }
+   ...mapGetters([
+    'medicines',
+    'medicineOptions',
+    'vitamins',
+    'vitaminOptions',
+    'nootropics',
+    'nootropicOptions',
+    'drinks',
+    'drinkOptions',
+    'tobaccos',
+    'tobaccoOptions',
+    'bugs',
+    'bugOptions',
+    'activityOptions'
+   ])
   },
 
   created () {
