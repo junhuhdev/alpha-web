@@ -2,7 +2,7 @@
   <v-layout align-center justify-center>
     <v-flex xs12 sm8 md12>
       <v-card class="elevation-12">
-        <v-toolbar color="primary" dark flat>
+        <v-toolbar color="grey" dark flat>
           <v-toolbar-title>Daily Records</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-text-field v-model="search" append-icon="mdi-search" label="Search" single-line hide-details></v-text-field>
@@ -18,7 +18,7 @@
               <v-toolbar flat color="white">
                 <v-dialog v-model="dialog" max-width="800px">
                   <template v-slot:activator="{ on }">
-                    <v-btn v-on="on" absolute small dark fab right color="pink">
+                    <v-btn v-on="on" absolute small dark fab right color="red lighten-1">
                       <v-icon>mdi-plus</v-icon>
                     </v-btn>
                   </template>
@@ -28,50 +28,50 @@
             </template>
             <template v-slot:item.medicineTags="{item}">
               <v-chip-group multiple column>
-                <v-chip small v-for="medicine in item.medicineTags" :key="medicine">{{medicine}}</v-chip>
+                <v-chip class="elevation-1" small v-for="medicine in item.medicineTags" :key="medicine">{{medicine}}</v-chip>
               </v-chip-group>
             </template>
             <template v-slot:item.vitaminTags="{item}">
               <v-chip-group multiple column>
-                <v-chip small v-for="vitamin in item.vitaminTags" :key="vitamin">{{vitamin}}</v-chip>
+                <v-chip class="elevation-1" small v-for="vitamin in item.vitaminTags" :key="vitamin">{{vitamin}}</v-chip>
               </v-chip-group>
             </template>
             <template v-slot:item.nootropicTags="{item}">
               <v-chip-group multiple column>
-                <v-chip small v-for="nootropic in item.nootropicTags" :key="nootropic">{{nootropic}}</v-chip>
+                <v-chip class="elevation-1" small v-for="nootropic in item.nootropicTags" :key="nootropic">{{nootropic}}</v-chip>
               </v-chip-group>
             </template>
             <template v-slot:item.drinkTags="{item}">
               <v-chip-group multiple column>
-                <v-chip small v-for="drink in item.drinkTags" :key="drink">{{drink}}</v-chip>
+                <v-chip class="elevation-1" small v-for="drink in item.drinkTags" :key="drink">{{drink}}</v-chip>
               </v-chip-group>
             </template>
             <template v-slot:item.tobaccoTags="{item}">
               <v-chip-group>
-                <v-chip small v-for="tobacco in item.tobaccoTags" :key="tobacco">{{tobacco}}</v-chip>
+                <v-chip class="elevation-1" small v-for="tobacco in item.tobaccoTags" :key="tobacco">{{tobacco}}</v-chip>
               </v-chip-group>
             </template>
             <template v-slot:item.bugTags="{item}">
               <v-chip-group column dark>
-                <v-chip color="red" small v-for="bug in item.bugTags" :key="bug">{{bug}}</v-chip>
+                <v-chip class="elevation-1" color="red" small v-for="bug in item.bugTags" :key="bug">{{bug}}</v-chip>
               </v-chip-group>
             </template>
             <template v-slot:item.activities="{item}">
               <v-chip-group multiple column>
-                <v-chip small v-for="activity in item.activities" :key="activity">{{activity}}</v-chip>
+                <v-chip class="elevation-1" small v-for="activity in item.activities" :key="activity">{{activity}}</v-chip>
               </v-chip-group>
             </template>
             <template v-slot:item.sharpness="{item}">
-              <v-chip :color="getColor(item.sharpness)" dark>{{item.sharpness}}</v-chip>
+              <v-chip class="elevation-1" :color="getColor(item.sharpness)" dark>{{item.sharpness}}</v-chip>
             </template>
             <template v-slot:item.mood="{item}">
-              <v-chip :color="getColor(item.mood)" dark>{{item.mood}}</v-chip>
+              <v-chip class="elevation-1" :color="getColor(item.mood)" dark>{{item.mood}}</v-chip>
             </template>
             <template v-slot:item.energy="{item}">
-              <v-chip :color="getColor(item.energy)" dark>{{item.energy}}</v-chip>
+              <v-chip class="elevation-1" :color="getColor(item.energy)" dark>{{item.energy}}</v-chip>
             </template>
             <template v-slot:item.productivity="{item}">
-              <v-chip :color="getColor(item.productivity)" dark>{{item.productivity}}</v-chip>
+              <v-chip class="elevation-1" :color="getColor(item.productivity)" dark>{{item.productivity}}</v-chip>
             </template>
             <template v-slot:expanded-item="{item}">
               <td :colspan="headers.length">Comment: {{item.comment}}</td>
@@ -99,18 +99,18 @@
    search: '',
    headers: [
     {text: 'Created', value: 'createdDate', width: '110'},
-    {text: 'Sleep hours', value: 'totalSleepHours'},
-    {text: 'Sharpness', value: 'sharpness', width: '10'},
-    {text: 'Mood', value: 'mood', width: '10'},
-    {text: 'Energy', value: 'energy', width: '10'},
-    {text: 'Productivity', value: 'productivity', width: '10'},
-    {text: 'Medicines', value: 'medicineTags', width: '200'},
-    {text: 'Vitamins', value: 'vitaminTags', width: '200'},
-    {text: 'Nootropics', value: 'nootropicTags', width: '200'},
+    {text: 'Sleep', value: 'totalSleepHours'},
+    {text: 'Sharp.', value: 'sharpness'},
+    {text: 'Mood', value: 'mood'},
+    {text: 'Energy', value: 'energy'},
+    {text: 'Prod.', value: 'productivity'},
+    {text: 'Med.', value: 'medicineTags', width: '170'},
+    {text: 'Vit.', value: 'vitaminTags', width: '200'},
+    {text: 'Noo.', value: 'nootropicTags', width: '170'},
     {text: 'Drinks', value: 'drinkTags', width: '170'},
-    {text: 'Tobaccos', value: 'tobaccoTags', width: '100'},
+    {text: 'Tob.', value: 'tobaccoTags', width: '100'},
     {text: 'Bugs', value: 'bugTags', width: '170'},
-    {text: 'Activities', value: 'activities'},
+    {text: 'Act.', value: 'activities'},
     {text: 'Actions', value: 'action', sortable: false},
    ],
    editedIndex: -1,
