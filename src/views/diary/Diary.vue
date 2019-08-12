@@ -153,9 +153,6 @@
    diaries () {
     return this.$store.getters.diaries;
    },
-   formTitle () {
-    return this.editedIndex === -1 ? 'New Item' : 'Edit Item';
-   },
   },
 
   created () {
