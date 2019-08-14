@@ -76,7 +76,12 @@
               <v-chip class="elevation-1" :color="getColor(item.productivity)" dark>{{item.productivity}}</v-chip>
             </template>
             <template v-slot:expanded-item="{item}">
-              <td :colspan="headers.length">Comment: {{item.comment}}</td>
+              <!--              <td :colspan="headers.length">Comment: {{item.comment}}</td>-->
+              <!--              <td :colspan="headers.length">{{diaryDetails}} </td>-->
+              <td :colspan="headers.length">
+                <!--                <Food></Food>-->
+                <FoodDetailsTable></FoodDetailsTable>
+              </td>
             </template>
             <template v-slot:item.action="{ item }">
               <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
@@ -94,27 +99,29 @@
 <script>
  import EditDiary from './EditDiary';
  import { mapGetters } from 'vuex';
+ import FoodDetailsTable from '../food/FoodDetailsTable';
+ import Food from '../food/Food';
 
  export default {
-  components: {EditDiary},
+  components: {Food, FoodDetailsTable, EditDiary},
   data: () => ({
    dialog: false,
    search: '',
    headers: [
-    {text: 'Created', value: 'createdDate', width: '110'},
-    {text: 'Sleep', value: 'totalSleepHours', width: '10'},
-    {text: 'Sharp.', value: 'sharpness'},
-    {text: 'Mood', value: 'mood'},
-    {text: 'Energy', value: 'energy'},
-    {text: 'Prod.', value: 'productivity'},
-    {text: 'Med.', value: 'medicineTags', width: '170'},
-    {text: 'Vit.', value: 'vitaminTags', width: '200'},
-    {text: 'Noo.', value: 'nootropicTags', width: '170'},
-    {text: 'Drinks', value: 'drinkTags', width: '170'},
-    {text: 'Tob.', value: 'tobaccoTags', width: '100'},
-    {text: 'Bugs', value: 'bugTags', width: '170'},
-    {text: 'Act.', value: 'activities'},
-    {text: 'Actions', value: 'action', sortable: false},
+    {text: 'Created', value: 'createdDate', width: '110px'},
+    {text: 'Sleep', value: 'totalSleepHours', width: '69px'},
+    {text: 'Sharp.', value: 'sharpness', width: '75px'},
+    {text: 'Mood', value: 'mood', width: '75px'},
+    {text: 'Energy', value: 'energy', width: '75px'},
+    {text: 'Prod.', value: 'productivity', width: '75px'},
+    {text: 'Med.', value: 'medicineTags', width: '150px'},
+    {text: 'Vit.', value: 'vitaminTags', width: '200px'},
+    {text: 'Noo.', value: 'nootropicTags', width: '170px'},
+    {text: 'Drinks', value: 'drinkTags', width: '170px'},
+    {text: 'Tob.', value: 'tobaccoTags', width: '100px'},
+    {text: 'Bugs', value: 'bugTags', width: '170px'},
+    {text: 'Act.', value: 'activities', width: '150px'},
+    {text: 'Actions', value: 'action', sortable: false, width: '100px'},
    ],
    editedIndex: -1,
    editedItem: {
@@ -176,7 +183,9 @@
    },
 
    selectDiaryDetails (event) {
-    this.$store.dispatch('selectDiaryDetails', event.item.id);
+    if (event.value) {
+     this.$store.dispatch('selectDiaryDetails', event.item.id);
+    }
    },
 
    deleteItem (item) {

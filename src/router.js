@@ -29,6 +29,7 @@ import store from './store/store';
 import Tobacco from './views/tobacco/Tobacco';
 import CreateDrink from './views/drink/CreateDrink';
 import Drink from './views/drink/Drink';
+import FoodDetailsTable from './views/food/FoodDetailsTable';
 
 Vue.use(Router);
 
@@ -73,6 +74,8 @@ export default new Router({
   {path: '/create-bug', name: 'create-bug', component: CreateBug},
   {path: '/create-food', name: 'create-food', component: CreateFood},
   {path: '/create-tobacco', name: 'create-tobacco', component: CreateTobacco},
+  /** Food routes */
+  {path: '/food-details', name: 'food-details', component: FoodDetailsTable},
   /** Drink routes */
   {path: '/create-drink', name: 'create-drink', component: CreateDrink},
   {path: '/drink', name: 'drink', component: Drink},
