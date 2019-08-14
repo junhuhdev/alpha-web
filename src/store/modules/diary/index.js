@@ -1,4 +1,4 @@
-import { DELETE_DIARY, INSERT_DIARY, SELECT_ACTIVITIES, SELECT_DIARIES, SELECT_DIARY, UPDATE_DIARY } from './types';
+import { DELETE_DIARY, INSERT_DIARY, SELECT_ACTIVITIES, SELECT_DIARIES, SELECT_DIARY, SELECT_DIARY_DETAILS, UPDATE_DIARY } from './types';
 import axios from 'axios';
 
 const BASE_PATH = '/api/diaries';
@@ -7,12 +7,16 @@ export default {
  namespaced: false,
  state: {
   diary: {},
+  diaryDetails: {},
   diaries: [],
   activities: []
  },
  mutations: {
   [SELECT_DIARY] (state, payload) {
    state.diary = payload;
+  },
+  [SELECT_DIARY_DETAILS] (state, payload) {
+   state.diaryDetails = payload;
   },
   [SELECT_DIARIES] (state, payload) {
    state.diaries = payload;
@@ -26,6 +30,15 @@ export default {
    try {
     const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/' + id}`);
     commit(SELECT_DIARY, response.data);
+    return response.data;
+   } catch (error) {
+    console.log(error);
+   }
+  },
+  async selectDiaryDetails ({commit}, id) {
+   try {
+    const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/' + id + "/details"}`);
+    commit(SELECT_DIARY_DETAILS, response.data);
     return response.data;
    } catch (error) {
     console.log(error);
@@ -80,6 +93,7 @@ export default {
  getters: {
   diaries: state => state.diaries,
   diary: state => state.diary,
+  diaryDetails: state => state.diaryDetails,
   activityOptions: state => state.activities
  }
 };

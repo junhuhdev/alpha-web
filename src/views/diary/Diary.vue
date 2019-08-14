@@ -14,6 +14,7 @@
               :search="search"
               show-expand
               dense
+              v-on:item-expanded="selectDiaryDetails"
           >
             <template v-slot:top>
               <v-toolbar flat color="white">
@@ -92,6 +93,7 @@
 </template>
 <script>
  import EditDiary from './EditDiary';
+ import { mapGetters } from 'vuex';
 
  export default {
   components: {EditDiary},
@@ -150,9 +152,10 @@
   },
 
   computed: {
-   diaries () {
-    return this.$store.getters.diaries;
-   },
+   ...mapGetters([
+    'diaries',
+    'diaryDetails'
+   ])
   },
 
   created () {
@@ -170,6 +173,10 @@
     this.editedIndex = this.diaries.indexOf(item);
     this.editedItem = Object.assign({}, item);
     this.dialog = true;
+   },
+
+   selectDiaryDetails (event) {
+    this.$store.dispatch('selectDiaryDetails', event.item.id);
    },
 
    deleteItem (item) {
