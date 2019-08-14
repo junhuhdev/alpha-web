@@ -13,7 +13,6 @@
               :items="diaries"
               :search="search"
               show-expand
-              dense
               v-on:item-expanded="selectDiaryDetails"
           >
             <template v-slot:top>
@@ -108,20 +107,20 @@
    dialog: false,
    search: '',
    headers: [
-    {text: 'CR.', value: 'createdDate', width: '110px'},
-    {text: 'SL.', value: 'totalSleepHours', width: '80px'},
-    {text: 'SH.', value: 'sharpness', width: '90px'},
-    {text: 'MO.', value: 'mood', width: '90px'},
-    {text: 'EN.', value: 'energy', width: '75px'},
-    {text: 'PR.', value: 'productivity', width: '75px'},
-    {text: 'ME.', value: 'medicineTags', width: '150px'},
-    {text: 'VI.', value: 'vitaminTags', width: '200px'},
-    {text: 'NO.', value: 'nootropicTags', width: '170px'},
-    {text: 'DR.', value: 'drinkTags', width: '170px'},
-    {text: 'TO.', value: 'tobaccoTags', width: '100px'},
-    {text: 'BU', value: 'bugTags', width: '170px'},
-    {text: 'AT.', value: 'activities', width: '150px'},
-    {text: 'AC.', value: 'action', sortable: false, width: '100px'},
+    {text: 'DATE', value: 'createdDate', width: '110px', align: 'start'},
+    {text: 'SHARP', value: 'sharpness', width: '110px', align: 'start'},
+    {text: 'PROD.', value: 'productivity', width: '110px', align: 'start'},
+    {text: 'MOOD', value: 'mood', width: '110px', align: 'start'},
+    {text: 'ENERGY', value: 'energy', width: '110px', align: 'start'},
+    {text: 'BUGS', value: 'bugTags', width: '150px', align: 'start'},
+    {text: 'SL', value: 'totalSleepHours', width: '80px', align: 'start'},
+    {text: 'AT', value: 'activities', width: '150px', align: 'start'},
+    {text: 'ME', value: 'medicineTags', width: '150px', align: 'start'},
+    {text: 'VI', value: 'vitaminTags', width: '200px', align: 'start'},
+    {text: 'NO', value: 'nootropicTags', width: '150px', align: 'start'},
+    {text: 'DR', value: 'drinkTags', width: '170px', align: 'start'},
+    {text: 'TO', value: 'tobaccoTags', width: '50px', align: 'start'},
+    {text: '', value: 'action', sortable: false, width: '70px', align: 'start'},
    ],
    editedIndex: -1,
    editedItem: {
