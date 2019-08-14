@@ -79,7 +79,7 @@
               <!--              <td :colspan="headers.length">{{diaryDetails}} </td>-->
               <td :colspan="headers.length">
                 <!--                <Food></Food>-->
-                <FoodDetailsTable></FoodDetailsTable>
+                <FoodDetailsTable @ironman="close"></FoodDetailsTable>
               </td>
             </template>
             <template v-slot:item.action="{ item }">

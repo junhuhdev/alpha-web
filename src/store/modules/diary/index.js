@@ -23,6 +23,9 @@ export default {
   },
   [SELECT_ACTIVITIES] (state, payload) {
    state.activities = payload;
+  },
+  [UPDATE_DIARY] (state, payload) {
+   state.diaryDetails = payload;
   }
  },
  actions: {
@@ -37,7 +40,7 @@ export default {
   },
   async selectDiaryDetails ({commit}, id) {
    try {
-    const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/' + id + "/details"}`);
+    const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/' + id + '/details'}`);
     commit(SELECT_DIARY_DETAILS, response.data);
     return response.data;
    } catch (error) {

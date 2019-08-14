@@ -25,14 +25,15 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="warning">Cancel</v-btn>
-          <v-btn color="primary">Save</v-btn>
+          <v-btn color="primary" @click="editDiary">Save</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
   </v-layout>
 </template>
 <script>
- import { mapGetters } from 'vuex';
+ import { mapActions, mapGetters } from 'vuex';
+ import { UPDATE_DIARY } from '../../store/modules/diary/types';
 
  export default {
   data: () => ({
@@ -67,6 +68,13 @@
    this.$store.dispatch('selectTobaccos');
    this.$store.dispatch('selectBugs');
    this.$store.dispatch('selectActivities');
+  },
+
+  methods: {
+   async editDiary () {
+    await this.$store.dispatch('updateDiary', this.diary);
+    this.$emit('ironman');
+   }
   },
 
  };
