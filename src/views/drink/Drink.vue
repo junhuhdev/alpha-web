@@ -23,11 +23,11 @@
   data: () => ({
    search: '',
    headers: [
-    {text: 'Name', value: 'name', width: '200'},
-    {text: 'Size', value: 'size', width: '100'},
-    {text: 'Manufacturer', value: 'manufacturer'},
-    {text: 'Caffeine', value: 'caffeine'},
-    {text: 'Ingredients', value: 'ingredients'},
+    {text: 'Name', value: 'name', width: '200px'},
+    {text: 'Size', value: 'size', width: '200px'},
+    {text: 'Manufacturer', value: 'manufacturer', width: '200px'},
+    {text: 'Caffeine', value: 'caffeine', width: '200px'},
+    {text: 'Ingredients', value: 'ingredients', width: '200px'},
    ],
   }),
 

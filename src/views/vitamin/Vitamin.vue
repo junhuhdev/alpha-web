@@ -23,10 +23,10 @@
   data: () => ({
    search: '',
    headers: [
-    {text: 'Name', value: 'name'},
-    {text: 'Manufacturer', value: 'manufacturer'},
-    {text: 'Dosage', value: 'dosage'},
-    {text: 'Price', value: 'amount'},
+    {text: 'Name', value: 'name', width: '200px'},
+    {text: 'Manufacturer', value: 'manufacturer', width: '200px'},
+    {text: 'Dosage', value: 'dosage', width: '200px'},
+    {text: 'Price', value: 'amount', width: '200px'},
    ],
   }),
 
