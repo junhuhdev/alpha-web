@@ -37,10 +37,17 @@
 
  export default {
   data: () => ({
+   dialog: false,
    severity: [1, 2, 3, 4, 5]
   }),
 
   props: ['diary'],
+
+  watch: {
+   dialog (val) {
+    val || this.close();
+   }
+  },
 
   computed: {
    ...mapGetters([
@@ -73,10 +80,17 @@
   methods: {
    async editDiary () {
     await this.$store.dispatch('updateDiary', this.diary);
-    this.$emit('ironman');
-   }
-  },
+   },
 
+   close () {
+    this.dialog = false;
+    setTimeout(() => {
+     this.editedItem = Object.assign({}, this.defaultItem);
+     this.editedIndex = -1;
+    }, 300);
+   },
+
+  }
  };
 </script>
 <style scoped>
