@@ -4,7 +4,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <div class="mr-5">
         <v-toolbar-title>
-          <router-link to="/" class="toolbar-title">Heartbeat</router-link>
+          <router-link to="/" class="toolbar-title">BioTrackify</router-link>
         </v-toolbar-title>
       </div>
       <v-toolbar-items class="hidden-sm-and-down">

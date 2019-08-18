@@ -7,11 +7,11 @@
         </v-toolbar>
         <v-card-text>
           <v-form>
-            <v-file-input label="Image"></v-file-input>
             <v-text-field label="Name" name="name" type="text"></v-text-field>
-            <v-text-field label="Brand" name="brand" type="text"></v-text-field>
+            <v-text-field label="Manufacturer" name="manufacturer" type="text"></v-text-field>
             <v-text-field label="Dosage" name="dosage" type="text"></v-text-field>
             <v-textarea label="Description" auto-grow rows="2" row-height="15"></v-textarea>
+            <v-text-field label="Link" name="link" type="text"></v-text-field>
           </v-form>
         </v-card-text>
         <v-card-actions>
@@ -24,7 +24,26 @@
 </template>
 <script>
  export default {
-  name: 'CreateMedicine'
+  data: () => ({
+   name: '',
+   manufacturer: '',
+   dosage: '',
+   description: '',
+   link: '',
+  }),
+
+  computed: {},
+
+  created () {
+
+  },
+
+  methods: {
+   create () {
+
+   }
+  },
+
  };
 </script>
 <style scoped>
