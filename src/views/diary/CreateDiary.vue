@@ -146,7 +146,8 @@
      comment: this.$data.comment
     };
 
-    this.$store.dispatch('insertDiary', payload);
+    this.$store.dispatch('insertDiary', payload)
+     .then(() => this.$router.push('/diary'));
 
    }
   }
