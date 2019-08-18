@@ -1,6 +1,6 @@
 <template>
   <v-layout align-center justify-center>
-    <v-flex xs12 sm8 md4>
+    <v-flex xs12 sm8 md6>
       <v-card class="elevation-12">
         <v-toolbar color="primary" dark flat>
           <v-toolbar-title>Available Medicines</v-toolbar-title>
@@ -12,31 +12,80 @@
               :headers="headers"
               :items="medicines"
               :search="search"
-          ></v-data-table>
+          >
+            <template v-slot:top>
+              <v-toolbar flat color="white">
+                <v-dialog v-model="dialog" max-width="800px">
+                  <template v-slot:activator="{on}">
+                    <v-btn v-on="on" absolute small dark fab right color="grey">
+                      <v-icon>mdi-plus</v-icon>
+                    </v-btn>
+                  </template>
+                </v-dialog>
+              </v-toolbar>
+            </template>
+            <template v-slot:item.action="{item}">
+              <v-icon small class="mr-2" @click="editItem(item)">mdi-pencil</v-icon>
+              <v-icon small class="mr-2" @click="deleteItem(item)">mdi-delete</v-icon>
+            </template>
+          </v-data-table>
         </v-card-text>
       </v-card>
     </v-flex>
   </v-layout>
 </template>
 <script>
+ import { mapGetters } from 'vuex';
+
  export default {
   data: () => ({
+   dialog: false,
    search: '',
    headers: [
     {text: 'Name', value: 'name'},
     {text: 'Manufacturer', value: 'manufacturer'},
     {text: 'Dosage', value: 'dosage'},
+    {text: '', value: 'action', align: 'end'},
    ],
+   editedIndex: -1,
+   editedItem: {},
+   defaultItem: {}
   }),
 
-  computed: {
-   medicines () {
-    return this.$store.getters.medicines;
+  watch: {
+   dialog (val) {
+    val || this.close();
    }
+  },
+
+  computed: {
+   ...mapGetters([
+    'medicines'
+   ])
   },
 
   created () {
    this.$store.dispatch('selectMedicines');
+  },
+
+  methods: {
+   editItem (item) {
+    this.editedIndex = this.medicines.indexOf(item);
+    this.editedItem = Object.assign({}, item);
+    this.dialog = true;
+   },
+
+   deleteItem (item) {
+
+   },
+
+   close () {
+    this.dialog = false;
+    setTimeout(() => {
+     this.editedItem = Object.assign({}, this.defaultItem);
+     this.editedIndex = -1;
+    }, 300);
+   }
   }
  };
 </script>
