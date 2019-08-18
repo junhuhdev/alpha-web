@@ -23,7 +23,12 @@
                       <v-icon>mdi-plus</v-icon>
                     </v-btn>
                   </template>
-                  <EditDiary v-bind:diary="editedItem"></EditDiary>
+                  <EditDiary
+                      v-bind:diary="editedItem"
+                      v-bind:title="formTitle"
+                      v-bind:createMode="createMode"
+                      v-bind:closeParent="close"
+                  ></EditDiary>
                 </v-dialog>
               </v-toolbar>
             </template>
@@ -161,7 +166,15 @@
    ...mapGetters([
     'diaries',
     'diaryDetails'
-   ])
+   ]),
+
+   formTitle () {
+    return this.editedIndex === -1 ? 'Create diary' : 'Edit diary';
+   },
+
+   createMode () {
+    return this.editedIndex === -1;
+   }
   },
 
   created () {
