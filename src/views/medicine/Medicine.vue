@@ -21,7 +21,12 @@
                       <v-icon>mdi-plus</v-icon>
                     </v-btn>
                   </template>
-                  <EditMedicine v-bind:medicine="editedItem" v-bind:closeParent="close"></EditMedicine>
+                  <EditMedicine
+                      v-bind:medicine="editedItem"
+                      v-bind:title="formTitle"
+                      v-bind:createMode="createMode"
+                      v-bind:closeParent="close"
+                  ></EditMedicine>
                 </v-dialog>
               </v-toolbar>
             </template>
@@ -65,7 +70,15 @@
   computed: {
    ...mapGetters([
     'medicines'
-   ])
+   ]),
+
+   formTitle () {
+    return this.editedIndex === -1 ? 'Create medicine' : 'Edit medicine';
+   },
+
+   createMode () {
+    return this.editedIndex === -1;
+   }
   },
 
   created () {

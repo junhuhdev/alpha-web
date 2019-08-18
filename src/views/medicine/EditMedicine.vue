@@ -3,7 +3,7 @@
     <v-flex xs12 sm8 md12>
       <v-card class="elevation-12">
         <v-toolbar color="deep-purple accent-4" dark flat>
-          <v-toolbar-title>Edit medicine</v-toolbar-title>
+          <v-toolbar-title>{{title}}</v-toolbar-title>
         </v-toolbar>
         <v-card-text>
           <v-form>
@@ -17,7 +17,8 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="warning">Cancel</v-btn>
-          <v-btn color="primary" @click="update">Save</v-btn>
+          <v-btn v-if="createMode" color="primary" @click="insert">Create</v-btn>
+          <v-btn v-if="!createMode" color="primary" @click="update">Save</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -29,11 +30,18 @@
  export default Vue.extend({
 
   props: {
+   title: String,
+   createMode: Boolean,
    medicine: Object,
    closeParent: Function
   },
 
   methods: {
+   insert () {
+    this.$store.dispatch('insertMedicine', this.medicine)
+     .then(() => this.closeParent());
+   },
+
    update () {
     this.$store.dispatch('updateMedicine', this.medicine)
      .then(() => this.closeParent());

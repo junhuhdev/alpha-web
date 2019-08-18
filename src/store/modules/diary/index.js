@@ -24,8 +24,12 @@ export default {
   [SELECT_ACTIVITIES] (state, payload) {
    state.activities = payload;
   },
+  [INSERT_DIARY] (state, payload) {
+   state.diaries.push(payload);
+  },
   [UPDATE_DIARY] (state, payload) {
-   state.diaryDetails = payload;
+   const index = state.diaries.findIndex(existing => existing.id === payload.id);
+   Object.assign(state.diaries[index], payload);
   }
  },
  actions: {

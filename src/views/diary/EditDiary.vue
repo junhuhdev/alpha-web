@@ -3,7 +3,7 @@
     <v-flex xs12 sm8 md12>
       <v-card class="elevation-12">
         <v-toolbar color="deep-purple accent-4" dark flat>
-          <v-toolbar-title>Edit diary</v-toolbar-title>
+          <v-toolbar-title>{{title}}</v-toolbar-title>
         </v-toolbar>
         <v-card-text>
           <v-form>
@@ -25,7 +25,8 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn color="warning">Cancel</v-btn>
-          <v-btn color="primary" @click="editDiary">Save</v-btn>
+          <v-btn v-if="createMode" color="primary" @click="insert">Create</v-btn>
+          <v-btn v-if="!createMode" color="primary" @click="update">Save</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -33,20 +34,18 @@
 </template>
 <script>
  import { mapActions, mapGetters } from 'vuex';
- import { UPDATE_DIARY } from '../../store/modules/diary/types';
+ import Vue from 'vue';
 
- export default {
+ export default Vue.extend({
   data: () => ({
-   dialog: false,
    severity: [1, 2, 3, 4, 5]
   }),
 
-  props: ['diary'],
-
-  watch: {
-   dialog (val) {
-    val || this.close();
-   }
+  props: {
+   title: String,
+   createMode: Boolean,
+   diary: Object,
+   closeParent: Function
   },
 
   computed: {
@@ -78,20 +77,18 @@
   },
 
   methods: {
-   async editDiary () {
-    await this.$store.dispatch('updateDiary', this.diary);
+   insert () {
+    this.$store.dispatch('insertDiary', this.diary)
+     .then(() => this.closeParent());
    },
 
-   close () {
-    this.dialog = false;
-    setTimeout(() => {
-     this.editedItem = Object.assign({}, this.defaultItem);
-     this.editedIndex = -1;
-    }, 300);
+   update () {
+    this.$store.dispatch('updateDiary', this.diary)
+     .then(() => this.closeParent());
    },
 
   }
- };
+ });
 </script>
 <style scoped>
 </style>
