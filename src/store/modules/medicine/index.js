@@ -16,6 +16,13 @@ export default {
   [SELECT_MEDICINES] (state, payload) {
    state.medicines = payload;
   },
+  [INSERT_MEDICINE] (state, payload) {
+   state.medicines.push(payload);
+  },
+  [UPDATE_MEDICINE] (state, payload) {
+   const index = state.medicines.findIndex(existing => existing.id === payload.id);
+   Object.assign(state.medicines[index], payload);
+  }
 
  },
  actions: {

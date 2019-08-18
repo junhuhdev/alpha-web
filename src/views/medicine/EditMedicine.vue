@@ -24,16 +24,22 @@
   </v-layout>
 </template>
 <script>
- export default {
+ import Vue from 'vue';
 
-  props: ['medicine'],
+ export default Vue.extend({
+
+  props: {
+   medicine: Object,
+   closeParent: Function
+  },
 
   methods: {
    update () {
-    this.$store.dispatch('updateMedicine', this.medicine);
+    this.$store.dispatch('updateMedicine', this.medicine)
+     .then(() => this.closeParent());
    }
   }
- };
+ });
 </script>
 <style scoped>
 </style>
