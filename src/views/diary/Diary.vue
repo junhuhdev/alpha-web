@@ -201,6 +201,8 @@
    },
 
    deleteItem (item) {
+    const index = this.diaries.indexOf(item);
+    confirm('Are you sure you want to delete?') && this.$store.dispatch('deleteDiary', item);
    },
 
    close () {

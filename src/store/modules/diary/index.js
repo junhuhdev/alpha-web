@@ -30,6 +30,10 @@ export default {
   [UPDATE_DIARY] (state, payload) {
    const index = state.diaries.findIndex(existing => existing.id === payload.id);
    Object.assign(state.diaries[index], payload);
+  },
+  [DELETE_DIARY] (state, payload) {
+   const index = state.diaries.findIndex(existing => existing.id === payload.id);
+   state.diaries.splice(index, 1);
   }
  },
  actions: {
@@ -90,8 +94,8 @@ export default {
   async deleteDiary ({commit}, payload) {
    try {
     const response = await axios.delete(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH}` + '/' + payload.id);
-    commit(DELETE_DIARY, response.data);
-    return response.data;
+    commit(DELETE_DIARY, payload);
+    return payload;
    } catch (error) {
     console.log(error);
    }
