@@ -7,7 +7,6 @@
         </v-toolbar>
         <v-card-text>
           <v-form>
-            <v-file-input label="Image"></v-file-input>
             <v-text-field label="Name" name="name" type="text"></v-text-field>
             <v-text-field label="Brand" name="brand" type="text"></v-text-field>
             <v-text-field label="Dosage" name="dosage" type="text"></v-text-field>

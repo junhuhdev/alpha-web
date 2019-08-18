@@ -17,6 +17,13 @@ export default {
   },
   [SELECT_VITAMINS] (state, payload) {
    state.vitamins = payload;
+  },
+  [INSERT_VITAMIN] (state, payload) {
+   state.vitamins.push(payload);
+  },
+  [UPDATE_VITAMIN] (state, payload) {
+   const index = state.vitamins.findIndex(existing => existing.id === payload.id);
+   Object.assign(state.vitamins[index], payload);
   }
  },
  actions: {
