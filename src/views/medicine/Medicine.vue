@@ -21,6 +21,7 @@
                       <v-icon>mdi-plus</v-icon>
                     </v-btn>
                   </template>
+                  <EditMedicine v-bind:medicine="editedItem"></EditMedicine>
                 </v-dialog>
               </v-toolbar>
             </template>
@@ -36,8 +37,10 @@
 </template>
 <script>
  import { mapGetters } from 'vuex';
+ import EditMedicine from './EditMedicine';
 
  export default {
+  components: {EditMedicine},
   data: () => ({
    dialog: false,
    search: '',
