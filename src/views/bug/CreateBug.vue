@@ -8,8 +8,9 @@
         <v-card-text>
           <v-form>
             <v-text-field label="Name" name="name" type="text"></v-text-field>
-            <v-textarea label="Description" auto-grow rows="3" row-height="15"></v-textarea>
             <v-select :items="severity" label="Severity" type="text"></v-select>
+            <v-textarea label="Description" auto-grow rows="3" row-height="15"></v-textarea>
+            <v-textarea label="Reason" auto-grow rows="3" row-height="15"></v-textarea>
           </v-form>
         </v-card-text>
         <v-card-actions>
