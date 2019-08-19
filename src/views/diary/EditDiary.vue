@@ -9,16 +9,16 @@
           <v-form>
             <v-text-field v-model="diary.totalSleepHours" label="Total sleep hours" name="sleep" type="number"></v-text-field>
             <v-select v-model="diary.sharpness" :items="severity" label="Sharpness" type="text"></v-select>
+            <v-select v-model="diary.productivity" :items="severity" label="Productivity" type="text"></v-select>
             <v-select v-model="diary.mood" :items="severity" label="Mood" type="text"></v-select>
             <v-select v-model="diary.energy" :items="severity" label="Energy" type="text"></v-select>
-            <v-select v-model="diary.productivity" :items="severity" label="Productivity" type="text"></v-select>
+            <v-combobox v-model="diary.bugTags" :items="bugOptions" label="Bugs" multiple chips></v-combobox>
+            <v-combobox v-model="diary.activities" :items="activityOptions" label="Activities" multiple chips></v-combobox>
             <v-combobox v-model="diary.medicineTags" :items="medicineOptions" label="Medicines" multiple chips></v-combobox>
             <v-combobox v-model="diary.vitaminTags" :items="vitaminOptions" label="Vitamins" multiple chips></v-combobox>
             <v-combobox v-model="diary.nootropicTags" :items="nootropicOptions" label="Nootropics" multiple chips></v-combobox>
             <v-combobox v-model="diary.drinkTags" :items="drinkOptions" label="Drinks" multiple chips></v-combobox>
             <v-combobox v-model="diary.tobaccoTags" :items="tobaccoOptions" label="Tobaccos" multiple chips></v-combobox>
-            <v-combobox v-model="diary.bugTags" :items="bugOptions" label="Bugs" multiple chips></v-combobox>
-            <v-combobox v-model="diary.activities" :items="activityOptions" label="Activities" multiple chips></v-combobox>
             <v-textarea v-model="diary.comment" label="Comment" auto-grow rows="3" row-height="15"></v-textarea>
           </v-form>
         </v-card-text>

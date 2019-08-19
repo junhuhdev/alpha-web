@@ -67,17 +67,20 @@
                 <v-chip class="elevation-1" small v-for="activity in item.activities" :key="activity">{{activity}}</v-chip>
               </v-chip-group>
             </template>
+            <template v-slot:item.totalSleepHours="{item}">
+              <v-chip class="elevation-1" :color="getSleepColor(item.totalSleepHours)" pill dark small>{{item.totalSleepHours}}</v-chip>
+            </template>
             <template v-slot:item.sharpness="{item}">
-              <v-chip class="elevation-1" :color="getColor(item.sharpness)" dark>{{item.sharpness}}</v-chip>
+              <v-chip class="elevation-1" :color="getColor(item.sharpness)" dark small>{{item.sharpness}}</v-chip>
             </template>
             <template v-slot:item.mood="{item}">
-              <v-chip class="elevation-1" :color="getColor(item.mood)" dark>{{item.mood}}</v-chip>
+              <v-chip class="elevation-1" :color="getColor(item.mood)" dark small>{{item.mood}}</v-chip>
             </template>
             <template v-slot:item.energy="{item}">
-              <v-chip class="elevation-1" :color="getColor(item.energy)" dark>{{item.energy}}</v-chip>
+              <v-chip class="elevation-1" :color="getColor(item.energy)" dark small>{{item.energy}}</v-chip>
             </template>
             <template v-slot:item.productivity="{item}">
-              <v-chip class="elevation-1" :color="getColor(item.productivity)" dark>{{item.productivity}}</v-chip>
+              <v-chip class="elevation-1" :color="getColor(item.productivity)" dark small>{{item.productivity}}</v-chip>
             </template>
             <template v-slot:expanded-item="{item}">
               <!--              <td :colspan="headers.length">Comment: {{item.comment}}</td>-->
@@ -113,12 +116,12 @@
    search: '',
    headers: [
     {text: 'DATE', value: 'createdDate', width: '110px', align: 'start'},
+    {text: 'SL', value: 'totalSleepHours', width: '80px', align: 'start'},
     {text: 'SHARP', value: 'sharpness', width: '110px', align: 'start'},
     {text: 'PROD.', value: 'productivity', width: '110px', align: 'start'},
     {text: 'MOOD', value: 'mood', width: '110px', align: 'start'},
     {text: 'ENERGY', value: 'energy', width: '110px', align: 'start'},
-    {text: 'BUGS', value: 'bugTags', width: '150px', align: 'start'},
-    {text: 'SL', value: 'totalSleepHours', width: '80px', align: 'start'},
+    {text: 'BU', value: 'bugTags', width: '150px', align: 'start'},
     {text: 'AT', value: 'activities', width: '150px', align: 'start'},
     {text: 'ME', value: 'medicineTags', width: '150px', align: 'start'},
     {text: 'VI', value: 'vitaminTags', width: '200px', align: 'start'},
@@ -182,6 +185,12 @@
   },
 
   methods: {
+   getSleepColor (severity) {
+    if (severity <= 5) return 'red';
+    else if (severity <= 6) return 'orange';
+    else return 'green';
+   },
+
    getColor (severity) {
     if (severity < 3) return 'red';
     else if (severity === 3) return 'orange';
