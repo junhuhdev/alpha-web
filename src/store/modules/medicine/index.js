@@ -22,6 +22,10 @@ export default {
   [UPDATE_MEDICINE] (state, payload) {
    const index = state.medicines.findIndex(existing => existing.id === payload.id);
    Object.assign(state.medicines[index], payload);
+  },
+  [DELETE_MEDICINE] (state, payload) {
+   const index = state.medicines.findIndex(existing => existing.id === payload.id);
+   state.medicines.splice(index, 1);
   }
 
  },

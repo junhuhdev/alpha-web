@@ -24,6 +24,10 @@ export default {
   [UPDATE_VITAMIN] (state, payload) {
    const index = state.vitamins.findIndex(existing => existing.id === payload.id);
    Object.assign(state.vitamins[index], payload);
+  },
+  [DELETE_VITAMIN] (state, payload) {
+   const index = state.vitamins.findIndex(existing => existing.id === payload.id);
+   state.vitamins.splice(index, 1);
   }
  },
  actions: {

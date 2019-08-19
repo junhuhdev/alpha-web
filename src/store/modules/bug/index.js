@@ -15,6 +15,17 @@ export default {
   },
   [SELECT_BUGS] (state, payload) {
    state.bugs = payload;
+  },
+  [INSERT_BUG] (state, payload) {
+   state.bugs.push(payload);
+  },
+  [UPDATE_BUG] (state, payload) {
+   const index = state.bugs.findIndex(existing => existing.id === payload.id);
+   Object.assign(state.bugs[index], payload);
+  },
+  [DELETE_BUG] (state, payload) {
+   const index = state.bugs.findIndex(existing => existing.id === payload.id);
+   state.bugs.splice(index, 1);
   }
  },
  actions: {

@@ -15,6 +15,17 @@ export default {
   },
   [SELECT_DRINKS] (state, payload) {
    state.drinks = payload;
+  },
+  [INSERT_DRINK] (state, payload) {
+   state.drinks.push(payload);
+  },
+  [UPDATE_DRINK] (state, payload) {
+   const index = state.drinks.findIndex(existing => existing.id === payload.id);
+   Object.assign(state.drinks[index], payload);
+  },
+  [DELETE_DRINK] (state, payload) {
+   const index = state.drinks.findIndex(existing => existing.id === payload.id);
+   state.drinks.splice(index, 1);
   }
  },
  actions: {

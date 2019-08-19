@@ -15,6 +15,17 @@ export default {
   },
   [SELECT_FOODS] (state, payload) {
    state.foods = payload;
+  },
+  [INSERT_FOOD] (state, payload) {
+   state.foods.push(payload);
+  },
+  [UPDATE_FOOD] (state, payload) {
+   const index = state.foods.findIndex(existing => existing.id === payload.id);
+   Object.assign(state.foods[index], payload);
+  },
+  [DELETE_FOOD] (state, payload) {
+   const index = state.foods.findIndex(existing => existing.id === payload.id);
+   state.foods.splice(index, 1);
   }
  },
  actions: {
