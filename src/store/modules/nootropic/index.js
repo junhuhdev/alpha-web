@@ -15,6 +15,17 @@ export default {
   },
   [SELECT_NOOTROPICS] (state, payload) {
    state.nootropics = payload;
+  },
+  [INSERT_NOOTROPIC] (state, payload) {
+   state.nootropics.push(payload);
+  },
+  [UPDATE_NOOTROPIC] (state, payload) {
+   const index = state.nootropics.findIndex(existing => existing.id === payload.id);
+   Object.assign(state.nootropics[index], payload);
+  },
+  [DELETE_NOOTROPIC] (state, payload) {
+   const index = state.nootropics.findIndex(existing => existing.id === payload.id);
+   state.nootropics.splice(index, 1);
   }
  },
  actions: {
