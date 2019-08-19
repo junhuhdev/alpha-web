@@ -93,7 +93,7 @@
    },
 
    deleteItem (item) {
-
+    confirm('Are you sure you want to delete?') && this.$store.dispatch('deleteMedicine', item);
    },
 
    close () {
