@@ -1,7 +1,7 @@
 <template>
   <div>
     <center>
-      <h1>Welcome to Heartbeat</h1>
+      <h1>Welcome to Bio-Trackify</h1>
     </center>
   </div>
 </template>

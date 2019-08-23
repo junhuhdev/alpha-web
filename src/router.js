@@ -59,7 +59,7 @@ export default new Router({
   {path: '/register', name: 'register', component: Register},
   {path: '/dashboard', name: 'dashboard', component: Dashboard},
   /** Diary routes */
-  {path: '/diary', name: 'diary', component: Diary},
+  {path: '/diary', name: 'diary', component: Diary, beforeEnter: ifAuthenticated},
   {path: '/stack', name: 'stack', component: Stack},
   {path: '/create-diary', name: 'create-diary', component: CreateDiary},
   {path: '/create-stack', name: 'create-stack', component: CreateStack},
