@@ -37,6 +37,8 @@
      this.$store.dispatch('logout').then(() => this.$router.push('/'));
     } else if (error.response.status === 400 && !originalRequest.__retry) {
      this.$store.dispatch('insertSnack', error.response.data);
+    } else if (error.response.status === 409 && !originalRequest.__retry) {
+     this.$store.dispatch('insertSnack', error.response.data);
     }
     return Promise.reject(error);
    });

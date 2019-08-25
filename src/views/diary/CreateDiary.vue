@@ -155,7 +155,7 @@
     });
 
     const payload = {
-     created: moment(this.$data.selectedCreated).format(),
+     created: moment.utc(this.$data.selectedCreated).format(),
      totalSleepHours: this.$data.selectedSleepHours,
      sharpness: this.$data.selectedSharpness,
      mood: this.$data.selectedMood,
