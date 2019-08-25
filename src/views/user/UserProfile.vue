@@ -4,7 +4,7 @@
       <v-card class="elevation-12">
         <v-card-text>
           <v-form>
-            <v-text-field readonly v-model="user.username" label="Username" name="username" type="text"></v-text-field>
+            <v-text-field readonly disabled v-model="user.username" label="Username" name="username" type="text"></v-text-field>
             <v-text-field v-model="user.firstName" label="First name" name="firstName" type="text"></v-text-field>
             <v-text-field v-model="user.lastName" label="Last name" name="lastName" type="text"></v-text-field>
             <v-select v-model="user.gender" :items="gender" label="Gender" type="text"></v-select>
