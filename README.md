@@ -1,5 +1,12 @@
 # alpha-web
 
+## Deployment
+(1) cd var/www/html/alpha-web
+(2) git pull
+(3) npm install
+(4) npm run build
+
+
 ## Project setup
 ```
 npm install
@@ -27,3 +34,5 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
