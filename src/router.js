@@ -83,7 +83,7 @@ export default new Router({
   {path: '/create-nootropic', name: 'create-nootropic', component: CreateNootropic},
   {path: '/nootropic', name: 'nootropic', component: Nootropic},
   /** User routes */
-  {path: '/user-profile', name: 'user-profile', component: UserProfile},
+  {path: '/user', name: 'user-profile', component: UserProfile},
   {path: '/user-setting', name: 'user-setting', component: UserSetting},
   {path: '/about', name: 'about', component: AboutUs},
   /** Integrations */

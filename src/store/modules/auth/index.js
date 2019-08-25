@@ -1,6 +1,8 @@
 import { AUTH_ERROR, AUTH_LOGOUT, AUTH_REQUEST, AUTH_SUCCESS } from './types';
 import axios from 'axios';
 
+const jwtDecode = require('jwt-decode');
+
 export const USER_TOKEN = 'user-token';
 
 export default {
@@ -52,6 +54,14 @@ export default {
  },
  getters: {
   isAuthenticated: state => !!state.token,
-  authStatus: state => state.status
+  authStatus: state => state.status,
+  username (state) {
+   const token = state.token;
+   if (token) {
+    const decoded = jwtDecode(token);
+    console.log(decoded);
+    return decoded.sub;
+   }
+  }
  }
 };

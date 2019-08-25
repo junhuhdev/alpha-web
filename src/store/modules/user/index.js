@@ -20,7 +20,7 @@ export default {
  actions: {
   async selectUser ({commit}, id) {
    try {
-    const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/' + id}`);
+    const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/username/' + id}`);
     commit(SELECT_USER, response.data);
     return response.data;
    } catch (error) {

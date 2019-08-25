@@ -7,6 +7,21 @@
         </v-toolbar>
         <v-card-text>
           <v-form>
+            <v-menu
+                ref="menu"
+                v-model="menu"
+                :close-on-content-click="false"
+                transition="scale-transition"
+                offset-y
+                full-width
+                min-width="290px"
+            >
+              <template v-slot:activator="{on}">
+                <v-text-field v-model="selectedCreated" label="Created" readonly v-on="on"></v-text-field>
+              </template>
+              <v-date-picker v-model="selectedCreated" no-title scrollable>
+              </v-date-picker>
+            </v-menu>
             <v-text-field v-model="selectedSleepHours" label="Total sleep hours" name="sleep" type="number"></v-text-field>
             <v-select v-model="selectedSharpness" :items="severity" label="Sharpness" type="text"></v-select>
             <v-select v-model="selectedMood" :items="severity" label="Mood" type="text"></v-select>
@@ -35,6 +50,8 @@
 
  export default {
   data: () => ({
+   menu: false,
+   selectedCreated: new Date().toISOString().substr(0, 10),
    selectedSleepHours: 0,
    selectedSharpness: 0,
    selectedMood: 0,
@@ -77,6 +94,11 @@
    this.$store.dispatch('selectTobaccos');
    this.$store.dispatch('selectBugs');
    this.$store.dispatch('selectActivities');
+  },
+
+  watch: {
+   selectedCreated (val) {
+   }
   },
 
   methods: {
