@@ -4,12 +4,18 @@
       <v-card class="elevation-12">
         <v-card-text>
           <v-form>
-            <v-text-field v-model="user.username" label="Username" name="username" type="text"></v-text-field>
-            <v-text-field label="First name" name="firstName" type="text"></v-text-field>
-            <v-text-field label="Last name" name="lastName" type="text"></v-text-field>
-            <v-text-field></v-text-field>
+            <v-text-field readonly v-model="user.username" label="Username" name="username" type="text"></v-text-field>
+            <v-text-field v-model="user.firstName" label="First name" name="firstName" type="text"></v-text-field>
+            <v-text-field v-model="user.lastName" label="Last name" name="lastName" type="text"></v-text-field>
+            <v-select v-model="user.gender" :items="gender" label="Gender" type="text"></v-select>
+            <v-text-field v-model="user.height" label="Height (cm)" name="height" type="number"></v-text-field>
+            <v-text-field v-model="user.weight" label="Weight (kg)" name="weight" type="number"></v-text-field>
           </v-form>
         </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn @click="update" color="primary">Save</v-btn>
+        </v-card-actions>
       </v-card>
     </v-flex>
   </v-layout>
@@ -19,7 +25,10 @@
 
  export default {
 
-  data: () => ({}),
+  data: () => ({
+   gender: ['MALE', 'FEMALE']
+
+  }),
 
   computed: {
    ...mapGetters([
@@ -33,8 +42,10 @@
   },
 
   methods: {
-   update() {
-    
+   update () {
+
+    this.$store.dispatch('updateUser', this.user)
+     .then(() => this.$router.push('/user'));
    }
   }
 

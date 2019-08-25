@@ -47,7 +47,7 @@ export default {
   },
   async updateUser ({commit}, payload) {
    try {
-    const response = await axios.put(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/' + payload.id}`, payload);
+    const response = await axios.put(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/username/' + payload.username}`, payload);
     commit(UPDATE_USER, response.data);
     return response.data;
    } catch (error) {
