@@ -59,7 +59,6 @@ export default {
    const token = state.token;
    if (token) {
     const decoded = jwtDecode(token);
-    console.log(decoded);
     return decoded.sub;
    }
   }

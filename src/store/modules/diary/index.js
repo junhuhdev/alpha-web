@@ -43,7 +43,7 @@ export default {
     commit(SELECT_DIARY, response.data);
     return response.data;
    } catch (error) {
-    console.log(error);
+    throw error;
    }
   },
   async selectDiaryDetails ({commit}, id) {
@@ -52,7 +52,7 @@ export default {
     commit(SELECT_DIARY_DETAILS, response.data);
     return response.data;
    } catch (error) {
-    console.log(error);
+    throw error;
    }
   },
   async selectDiaries ({commit}) {
@@ -61,7 +61,7 @@ export default {
     commit(SELECT_DIARIES, response.data);
     return response.data;
    } catch (error) {
-    console.log(error);
+    throw error;
    }
   },
   async selectActivities ({commit}) {
@@ -70,7 +70,7 @@ export default {
     commit(SELECT_ACTIVITIES, response.data);
     return response.data;
    } catch (error) {
-    console.log(error);
+    throw error;
    }
   },
   async insertDiary ({commit}, payload) {
@@ -79,7 +79,7 @@ export default {
     commit(INSERT_DIARY, response.data);
     return response.data;
    } catch (error) {
-    console.log(error);
+    throw error;
    }
   },
   async updateDiary ({commit}, payload) {
@@ -88,7 +88,7 @@ export default {
     commit(UPDATE_DIARY, response.data);
     return response.data;
    } catch (error) {
-    console.log(error);
+    throw error;
    }
   },
   async deleteDiary ({commit}, payload) {
@@ -97,7 +97,7 @@ export default {
     commit(DELETE_DIARY, payload);
     return payload;
    } catch (error) {
-    console.log(error);
+    throw error;
    }
   }
  },

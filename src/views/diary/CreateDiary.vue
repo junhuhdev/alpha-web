@@ -48,6 +48,8 @@
 <script>
  import { mapGetters } from 'vuex';
 
+ const moment = require('moment');
+
  export default {
   data: () => ({
    menu: false,
@@ -153,6 +155,7 @@
     });
 
     const payload = {
+     created: moment(this.$data.selectedCreated).format(),
      totalSleepHours: this.$data.selectedSleepHours,
      sharpness: this.$data.selectedSharpness,
      mood: this.$data.selectedMood,
@@ -169,7 +172,8 @@
     };
 
     this.$store.dispatch('insertDiary', payload)
-     .then(() => this.$router.push('/diary'));
+     .then(() => this.$router.push('/diary'))
+     .catch((err) => {});
 
    }
   }

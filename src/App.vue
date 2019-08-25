@@ -3,6 +3,7 @@
     <NavbarHeader/>
     <v-content>
       <v-container fluid>
+        <SnackBar></SnackBar>
         <router-view/>
       </v-container>
     </v-content>
@@ -13,10 +14,12 @@
  import NavbarBottom from './components/common/NavbarBottom';
  import NavigationDrawer from './components/common/NavigationDrawer';
  import axios from 'axios';
+ import SnackBar from './components/common/SnackBar';
 
  export default {
   name: 'App',
   components: {
+   SnackBar,
    NavigationDrawer,
    NavbarBottom,
    NavbarHeader,
@@ -29,10 +32,11 @@
    axios.interceptors.response.use((response) => {
     return response;
    }, (error) => {
-    console.log('error', error);
     let originalRequest = error.config;
     if (error.response.status === 401 && !originalRequest.__retry) {
      this.$store.dispatch('logout').then(() => this.$router.push('/'));
+    } else if (error.response.status === 400 && !originalRequest.__retry) {
+     this.$store.dispatch('insertSnack', error.response.data);
     }
     return Promise.reject(error);
    });
