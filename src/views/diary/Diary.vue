@@ -67,6 +67,9 @@
                 <v-chip class="elevation-1" small v-for="activity in item.activities" :key="activity">{{activity}}</v-chip>
               </v-chip-group>
             </template>
+            <template v-slot:item.createdDate="{item}">
+              {{item.createdDate + ' ' + '(' + getDay(item.created) + ')'}}
+            </template>
             <template v-slot:item.totalSleepHours="{item}">
               <v-chip class="elevation-1" :color="getSleepColor(item.totalSleepHours)" pill dark small>{{item.totalSleepHours}}</v-chip>
             </template>
@@ -109,13 +112,15 @@
  import FoodDetailsTable from '../food/FoodDetailsTable';
  import Food from '../food/Food';
 
+ const moment = require('moment');
+
  export default {
   components: {Food, FoodDetailsTable, EditDiary},
   data: () => ({
    dialog: false,
    search: '',
    headers: [
-    {text: 'DATE', value: 'createdDate', width: '110px', align: 'start'},
+    {text: 'DATE', value: 'createdDate', width: '130px', align: 'start'},
     {text: 'SL', value: 'totalSleepHours', width: '80px', align: 'start'},
     {text: 'SHARP', value: 'sharpness', width: '110px', align: 'start'},
     {text: 'PROD.', value: 'productivity', width: '110px', align: 'start'},
@@ -185,6 +190,10 @@
   },
 
   methods: {
+   getDay (date) {
+    return moment(date).format('ddd');
+   },
+
    getSleepColor (severity) {
     if (severity <= 5) return 'red';
     else if (severity <= 6) return 'orange';
