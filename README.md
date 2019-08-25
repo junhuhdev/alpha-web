@@ -2,8 +2,11 @@
 
 ## Deployment
 (1) cd var/www/html/alpha-web
+
 (2) git pull
+
 (3) npm install
+
 (4) npm run build
 
 
