@@ -9,8 +9,8 @@
           class="elevation-1"
           :items-per-page=30
           hide-default-footer
+          hide-default-header
           dense
-          show-group-by
       >
       </v-data-table>
     </v-flex>

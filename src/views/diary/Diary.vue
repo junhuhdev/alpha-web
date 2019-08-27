@@ -13,6 +13,7 @@
               :items="diaries"
               :search="search"
               show-expand
+              :items-per-page=100
               v-on:item-expanded="selectDiaryDetails"
           >
             <template v-slot:top>
