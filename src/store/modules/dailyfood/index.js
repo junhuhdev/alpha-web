@@ -43,7 +43,7 @@ export default {
     commit(SELECT_DAILY_FOOD, response.data);
     return response.data;
    } catch (error) {
-    console.log(error);
+    throw error;
    }
   },
   async selectDailyFoods ({commit}) {
@@ -52,7 +52,7 @@ export default {
     commit(SELECT_DAILY_FOODS, response.data);
     return response.data;
    } catch (error) {
-    console.log(error);
+    throw error;
    }
   },
   async selectDailyFoodsAvailable ({commit}) {
@@ -61,7 +61,7 @@ export default {
     commit(SELECT_DAILY_FOODS_AVAILABLE, response.data);
     return response.data;
    } catch (error) {
-
+    throw error;
    }
   },
   async selectDailyFoodCategories ({commit}) {
@@ -70,7 +70,7 @@ export default {
     commit(SELECT_DAILY_FOOD_CATEGORIES, response.data);
     return response.data;
    } catch (error) {
-
+    throw error;
    }
   },
   async insertDailyFood ({commit}, payload) {
@@ -79,7 +79,7 @@ export default {
     commit(INSERT_DAILY_FOOD, response.data);
     return response.data;
    } catch (error) {
-    console.log(error);
+    throw error;
    }
   },
   async updateDailyFood ({commit}, payload) {
@@ -88,7 +88,7 @@ export default {
     commit(UPDATE_DAILY_FOOD, response.data);
     return response.data;
    } catch (error) {
-    console.log(error);
+    throw error;
    }
   },
   async deleteDailyFood ({commit}, payload) {
@@ -97,7 +97,7 @@ export default {
     commit(DELETE_DAILY_FOOD, response.data);
     return response.data;
    } catch (error) {
-    console.log(error);
+    throw error;
    }
   }
  },

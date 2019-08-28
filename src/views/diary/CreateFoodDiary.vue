@@ -88,7 +88,16 @@
    },
 
    create () {
-
+    if (this.foodRecords.length === 0) {
+     return;
+    }
+    const payload = {
+     created: this.selectedCreated,
+     records: this.foodRecords
+    };
+    this.$store.dispatch('insertDailyFood', payload)
+     .then(() => this.$router.push('/diary'))
+     .catch((err) => {});
    }
   }
 
