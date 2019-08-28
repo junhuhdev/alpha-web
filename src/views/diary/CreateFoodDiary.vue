@@ -31,7 +31,7 @@
               </v-date-picker>
             </v-menu>
             <v-select v-model="model.category" :items="dailyFoodCategories" label="Category" type="text"></v-select>
-            <v-combobox v-model="model.foods" :items="foods" label="Foods" multiple chips></v-combobox>
+            <v-combobox v-model="model.foods" :items="dailyFoodsAvailable" label="Foods" multiple chips></v-combobox>
           </v-form>
         </v-card-text>
         <v-card-actions>
@@ -48,6 +48,7 @@
 
  export default {
   data: () => ({
+   menu: false,
    selectedCreated: new Date().toISOString().substr(0, 10),
    foodRecords: [],
    model: {
@@ -60,11 +61,13 @@
 
   computed: {
    ...mapGetters([
-    'dailyFoodCategories'
+    'dailyFoodCategories',
+    'dailyFoodsAvailable'
    ])
   },
 
   created () {
+   this.$store.dispatch('selectDailyFoodsAvailable');
    this.$store.dispatch('selectDailyFoodCategories');
   },
 

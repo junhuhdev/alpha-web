@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { DELETE_DAILY_FOOD, INSERT_DAILY_FOOD, SELECT_DAILY_FOOD, SELECT_DAILY_FOOD_CATEGORIES, SELECT_DAILY_FOODS, UPDATE_DAILY_FOOD } from './types';
+import { DELETE_DAILY_FOOD, INSERT_DAILY_FOOD, SELECT_DAILY_FOOD, SELECT_DAILY_FOOD_CATEGORIES, SELECT_DAILY_FOODS, SELECT_DAILY_FOODS_AVAILABLE, UPDATE_DAILY_FOOD } from './types';
 
 const BASE_PATH = '/api/dailyfoods';
 
@@ -8,7 +8,8 @@ export default {
  state: {
   dailyFood: {},
   dailyFoods: [],
-  dailyFoodCategories: []
+  dailyFoodCategories: [],
+  dailyFoodsAvailable: []
  },
  mutations: {
   [SELECT_DAILY_FOOD] (state, payload) {
@@ -16,6 +17,9 @@ export default {
   },
   [SELECT_DAILY_FOODS] (state, payload) {
    state.dailyFoods = payload;
+  },
+  [SELECT_DAILY_FOODS_AVAILABLE] (state, payload) {
+   state.dailyFoodsAvailable = payload;
   },
   [SELECT_DAILY_FOOD_CATEGORIES] (state, payload) {
    state.dailyFoodCategories = payload;
@@ -49,6 +53,15 @@ export default {
     return response.data;
    } catch (error) {
     console.log(error);
+   }
+  },
+  async selectDailyFoodsAvailable ({commit}) {
+   try {
+    const response = await axios.get(`${process.env.VUE_APP_BACKEND_URL + BASE_PATH + '/foods'}`);
+    commit(SELECT_DAILY_FOODS_AVAILABLE, response.data);
+    return response.data;
+   } catch (error) {
+
    }
   },
   async selectDailyFoodCategories ({commit}) {
@@ -91,6 +104,7 @@ export default {
  getters: {
   dailyFoods: state => state.dailyFoods,
   dailyFood: state => state.dailyFood,
-  dailyFoodCategories: state => state.dailyFoodCategories
+  dailyFoodCategories: state => state.dailyFoodCategories,
+  dailyFoodsAvailable: state => state.dailyFoodsAvailable
  }
 };
