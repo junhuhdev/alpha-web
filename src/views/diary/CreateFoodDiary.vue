@@ -46,6 +46,8 @@
 <script>
  import { mapGetters } from 'vuex';
 
+ const moment = require('moment');
+
  export default {
   data: () => ({
    menu: false,
@@ -92,7 +94,7 @@
      return;
     }
     const payload = {
-     created: this.selectedCreated,
+     created: moment.utc(this.selectedCreated).format(),
      records: this.foodRecords
     };
     this.$store.dispatch('insertDailyFood', payload)
