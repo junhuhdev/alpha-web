@@ -15,6 +15,21 @@
         </v-list-item>
         <v-card-text>
           <v-form>
+            <v-menu
+                ref="menu"
+                v-model="menu"
+                :close-on-content-click="false"
+                transition="scale-transition"
+                offset-y
+                full-width
+                min-width="290px"
+            >
+              <template v-slot:activator="{on}">
+                <v-text-field v-model="selectedCreated" label="Created" readonly v-on="on"></v-text-field>
+              </template>
+              <v-date-picker v-model="selectedCreated" no-title scrollable>
+              </v-date-picker>
+            </v-menu>
             <v-select v-model="model.category" :items="categories" label="Category" type="text"></v-select>
             <v-combobox v-model="model.foods" :items="foods" label="Foods" multiple chips></v-combobox>
           </v-form>
@@ -31,6 +46,7 @@
 <script>
  export default {
   data: () => ({
+   selectedCreated: new Date().toISOString().substr(0, 10),
    foodRecords: [],
    model: {
     category: '',
