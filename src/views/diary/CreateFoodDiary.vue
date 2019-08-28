@@ -30,7 +30,7 @@
               <v-date-picker v-model="selectedCreated" no-title scrollable>
               </v-date-picker>
             </v-menu>
-            <v-select v-model="model.category" :items="categories" label="Category" type="text"></v-select>
+            <v-select v-model="model.category" :items="dailyFoodCategories" label="Category" type="text"></v-select>
             <v-combobox v-model="model.foods" :items="foods" label="Foods" multiple chips></v-combobox>
           </v-form>
         </v-card-text>
@@ -44,6 +44,8 @@
   </v-layout>
 </template>
 <script>
+ import { mapGetters } from 'vuex';
+
  export default {
   data: () => ({
    selectedCreated: new Date().toISOString().substr(0, 10),
@@ -56,8 +58,14 @@
    categories: ['Breakfast', 'Lunch', 'Dinner']
   }),
 
-  created () {
+  computed: {
+   ...mapGetters([
+    'dailyFoodCategories'
+   ])
+  },
 
+  created () {
+   this.$store.dispatch('selectDailyFoodCategories');
   },
 
   methods: {
