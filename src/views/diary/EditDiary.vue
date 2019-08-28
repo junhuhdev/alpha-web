@@ -24,7 +24,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="warning">Cancel</v-btn>
+          <v-btn color="warning" @click="closeParent">Cancel</v-btn>
           <v-btn v-if="createMode" color="primary" @click="insert">Create</v-btn>
           <v-btn v-if="!createMode" color="primary" @click="update">Save</v-btn>
         </v-card-actions>
