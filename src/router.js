@@ -30,6 +30,7 @@ import Tobacco from './views/tobacco/Tobacco';
 import CreateDrink from './views/drink/CreateDrink';
 import Drink from './views/drink/Drink';
 import FoodDetailsTable from './views/food/FoodDetailsTable';
+import CreateFoodDiary from './views/diary/CreateFoodDiary';
 
 Vue.use(Router);
 
@@ -67,7 +68,6 @@ export default new Router({
   {path: '/vitamin', name: 'vitamin', component: Vitamin, beforeEnter: ifAuthenticated},
   {path: '/medicine', name: 'medicine', component: Medicine, beforeEnter: ifAuthenticated},
   {path: '/bug', name: 'bug', component: Bug},
-  {path: '/food', name: 'food', component: Food},
   {path: '/tobacco', name: 'tobacco', component: Tobacco},
   {path: '/create-vitamin', name: 'create-vitamin', component: CreateVitamin},
   {path: '/create-medicine', name: 'create-medicine', component: CreateMedicine},
@@ -75,6 +75,8 @@ export default new Router({
   {path: '/create-food', name: 'create-food', component: CreateFood},
   {path: '/create-tobacco', name: 'create-tobacco', component: CreateTobacco},
   /** Food routes */
+  {path: '/food', name: 'food', component: Food},
+  {path: '/create-food-diary', name: 'create-food-diary', component: CreateFoodDiary},
   {path: '/food-details', name: 'food-details', component: FoodDetailsTable},
   /** Drink routes */
   {path: '/create-drink', name: 'create-drink', component: CreateDrink},
