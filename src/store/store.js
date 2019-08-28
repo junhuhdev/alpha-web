@@ -11,6 +11,7 @@ import authModule from './modules/auth';
 import bugModule from './modules/bug';
 import tobaccoModule from './modules/tobacco';
 import snackModule from './modules/snackbar';
+import dailyFoodModule from './modules/dailyfood';
 
 Vue.use(Vuex);
 
@@ -27,7 +28,8 @@ export default new Vuex.Store({
   auth: authModule,
   bug: bugModule,
   tobacco: tobaccoModule,
-  snack: snackModule
+  snack: snackModule,
+  dailyFood: dailyFoodModule
  },
  state: {}
 });
