@@ -12,6 +12,7 @@ import bugModule from './modules/bug';
 import tobaccoModule from './modules/tobacco';
 import snackModule from './modules/snackbar';
 import dailyFoodModule from './modules/dailyfood';
+import ouraModule from './modules/oura';
 
 Vue.use(Vuex);
 
@@ -29,7 +30,8 @@ export default new Vuex.Store({
   bug: bugModule,
   tobacco: tobaccoModule,
   snack: snackModule,
-  dailyFood: dailyFoodModule
+  dailyFood: dailyFoodModule,
+  oura: ouraModule
  },
  state: {}
 });
