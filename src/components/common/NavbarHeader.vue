@@ -70,7 +70,7 @@
     {
      title: 'Diary',
      children: [
-      {title: 'Daily Records', link: '/diary'},
+      {title: 'Daily records', link: '/diary'},
       // {title: 'Nootropic Stack', link: '/stack'},
       {title: 'Create diary', link: '/create-diary'},
       {title: 'Create food diary', link: '/create-food-diary'},

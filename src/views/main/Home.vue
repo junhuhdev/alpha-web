@@ -1,11 +1,9 @@
-<template>
-  <v-row align-content="center" class="flex-column">
-    <h1>Welcome to Bio-Trackify</h1>
-    <a href="http://localhost:9000/login/oauth2/code/fitbit">Fitbit</a><br>
-    <a href="http://localhost:9000/login/oauth2/code/oura">Oura</a>
-    <v-btn v-on:click="getSleep">Get sleep</v-btn>
-    <div>{{getSleepData}}</div>
-  </v-row>
+<template class="image-style">
+  <div class="image-style">
+    <v-row align-content="center" class="flex-column">
+      <h1>Welcome to STEM</h1>
+    </v-row>
+  </div>
 </template>
 <script>
  export default {
@@ -25,18 +23,29 @@
     this.$store.dispatch('selectSleep');
    },
 
-   test() {
-
-   },
-
-   pelle() {
-
-   },
-
-
   }
 
  };
 </script>
 <style scoped>
+  body, html {
+    color: black;
+    background-color: black;
+  }
+
+  h1 {
+    color: white;
+  }
+
+  .image-style {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff url("../../assets/background-image.jpg") no-repeat center center;
+    background-size: cover;
+    /*transform: scale(1.1);*/
+  }
 </style>

@@ -18,6 +18,8 @@
           >
             <template v-slot:top>
               <v-toolbar flat color="white">
+                <v-btn small dark right color="purple" href="http://localhost:9000/login/oauth2/code/oura" class="mr-6">Sync Oura</v-btn>
+                <v-btn small dark right color="purple" href="http://localhost:9000/login/oauth2/code/oura">Sync FitBit</v-btn>
                 <v-dialog v-model="dialog" max-width="800px">
                   <template v-slot:activator="{ on }">
                     <v-btn v-on="on" absolute small dark fab right color="grey">
