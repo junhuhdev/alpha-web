@@ -1,6 +1,6 @@
-<template class="image-style">
+<template>
   <div class="image-style">
-    <v-row align-content="center" class="flex-column">
+    <v-row align-content="center" class="flex-column mt-12">
       <h1>Welcome to STEM</h1>
     </v-row>
   </div>
@@ -28,11 +28,6 @@
  };
 </script>
 <style scoped>
-  body, html {
-    color: black;
-    background-color: black;
-  }
-
   h1 {
     color: white;
   }
@@ -46,6 +41,5 @@
     right: 0;
     background: #ffffff url("../../assets/background-image.jpg") no-repeat center center;
     background-size: cover;
-    /*transform: scale(1.1);*/
   }
 </style>
