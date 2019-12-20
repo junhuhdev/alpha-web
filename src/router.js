@@ -56,7 +56,7 @@ export default new Router({
  routes: [
   /** Main routes */
   {path: '/', name: 'home', component: Home},
-  {path: '/login', name: 'login', component: Login},
+  {path: '/login', name: 'login', component: Login, beforeEnter: ifNotAuthenticated},
   {path: '/register', name: 'register', component: Register},
   {path: '/dashboard', name: 'dashboard', component: Dashboard},
   /** Diary routes */

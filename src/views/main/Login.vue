@@ -6,14 +6,14 @@
           <v-toolbar-title>Login user</v-toolbar-title>
         </v-toolbar>
         <v-card-text>
-          <v-form @submit="login">
+          <v-form @submit.prevent="login">
             <v-text-field v-model="username" label="Login" name="login" prepend-icon="mdi-account" type="text"></v-text-field>
             <v-text-field v-model="password" label="Password" name="password" prepend-icon="mdi-lock" type="password"></v-text-field>
+            <v-btn type="submit" color="primary">Login</v-btn>
           </v-form>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn @click="login" color="primary">Login</v-btn>
         </v-card-actions>
       </v-card>
     </v-flex>
@@ -30,7 +30,8 @@
    login () {
     const {username, password} = this;
     this.$store.dispatch('login', {username, password})
-     .then(() => this.$router.push('/'));
+     .then(() => this.$router.push(this.$route.query.redirect || '/'))
+     .catch(error => console.log('Could not redirect ', error));
    }
   }
  };
