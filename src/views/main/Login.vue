@@ -6,6 +6,7 @@
           <v-toolbar-title>Login user</v-toolbar-title>
         </v-toolbar>
         <v-card-text>
+          <!-- the submit event will no longer reload the page -->
           <v-form @submit.prevent="login">
             <v-text-field v-model="username" label="Login" name="login" prepend-icon="mdi-account" type="text"></v-text-field>
             <v-text-field v-model="password" label="Password" name="password" prepend-icon="mdi-lock" type="password"></v-text-field>
